@@ -8,7 +8,7 @@ include_once('header.php');
 <tbody>
    <?php foreach($subjects as $items): ?>
         <tr>
-          <th>  <?=htmlspecialchars($items['name'])?>  </th>
+          <th><?=htmlspecialchars($items['name'])?>  </th>
           <th>  <?=htmlspecialchars($items['sub_id'])?></th>
           <th class="<?=color_сell($items['avg_grade'])?>"><?=htmlspecialchars($items['avg_grade'])?></th>  
    
