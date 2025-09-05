@@ -1,0 +1,19 @@
+CREATE TABLE `users`(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255),
+    pass VARCHAR(255)
+);
+
+CREATE TABLE `grades` (`id` INT NOT NULL AUTO_INCREMENT , `sub_id` INT NOT NULL , `user_id` INT NOT NULL , `grade` INT NOT NULL , `created_ad` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+SELECT lessens.num_less AS num_less, subjects.name AS name_subject FROM lessens INNER JOIN subjects ON lessens.sub_id=subjects.id;
+CREATE TABLE `users`(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255),
+    pass VARCHAR(255)
+);
+
+CREATE TABLE `grades` (`id` INT NOT NULL AUTO_INCREMENT , `sub_id` INT NOT NULL , `user_id` INT NOT NULL , `grade` INT NOT NULL , `created_ad` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+SELECT lessens.num_less AS num_less, subjects.name AS name_subject FROM lessens INNER JOIN subjects ON lessens.sub_id=subjects.id;
+SELECT lessens.num_less AS num_less, subjects.name AS name_subject FROM lessens INNER JOIN subjects ON lessens.sub_id=subjects.id WHERE lessens.weekday = 1;
