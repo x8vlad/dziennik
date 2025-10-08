@@ -1,6 +1,7 @@
 <?php
-    include_once('header.php');
-    include_once('database.php');
+    include_once(__DIR__ . '/../config/config.php');
+    include_once(view('header.php'));
+    include_once(ROOT_PATH  . '/database.php');
     
     //$result = mysqli_query($conn, $stmt
     // $result = $conn->query("SELECT * FROM announcement ORDER BY created_at ASC");
@@ -23,16 +24,18 @@
               <th>Actions</th>
             </tr>
           <tbody id="table-body"> 
-              <?php require_once('table-contentAJAX.php'); ?>
+              <!-- потом будет в controllers -->
+              <?php require_once(controller('table-contentAJAX.php')); ?>
           </tbody>
            <!-- php endwhile -->
           </table>
         
 
           
-        <a href="add_announcement.tpl.php" class="btn btn-dark">Add announcement</a>
+        <a href="<?= BASE_URL ?>controllers/add_announcement.tpl.php" class="btn btn-dark">Add announcement</a>
+
         <!-- onclick="return false;" -->
-        <a href="remove_announcement.php" class="btn btn-danger"  id="remover_btn">Remove all announcements</a>
+        <a href="<?= BASE_URL ?>controllers/remove_announcement.php" class="btn btn-danger"  id="remover_btn">Remove all announcements</a>
         <!-- <button type="button" id="editor_btn" class="btn btn-outline-dark" data-toggle="modal" data-target="#editBtn">Edit announcements(id)</button> -->
         <!-- <a href="#" class="btn btn-outline-dark"  id="editor_btn" data-toggle="modal" data-target="#editBtn">Edit announcements(id)</a>  -->
          
@@ -42,9 +45,8 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Edit date</h5>
                 </div>
-
                 <!-- edit date for PHP and AJAX -->
-                  <form action="edit_announcement.php" method="POST" id="FormForEdit">
+                 <form action="<?= BASE_URL ?>controllers/edit_announcement.php" method="POST" id="FormForEdit">
                     <div class="modal-body">
                       <!-- hide pole ID(чтобы понять на какое именно поле нажал юзер(чтобы получить титул и контеткт оглошения)) -->
                       <input type="hidden" name="id" id="EditDateId"> 
@@ -69,9 +71,7 @@
 
         <br><br>
 
-        <a href="planLessens.tpl.php" class="btn btn-primary">plan lessens</a>
-        <a href="attendance.php" class="btn btn-secondary">attendance</a>
+        <a href="<?= BASE_URL ?>view/planLessens.tpl.php" class="btn btn-primary">plan lessens</a>
+        <a href="<?= BASE_URL ?>/controllers/attendance.php" class="btn btn-secondary">attendance</a>
     </div>
-<?php
-  include_once('footer.php');
-?>
+<?php include_once(view('footer.php')); ?>

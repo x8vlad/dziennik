@@ -1,4 +1,7 @@
-<?php include_once('header.php');?>
+<?php
+  include_once(__DIR__ . '/../config/config.php'); 
+  include_once(view('header.php'));
+?>
 
     <div class="container my-5">
       <h1>Wiadomosci!</h1>
@@ -11,4 +14,4 @@
         <a href="planLessens.tpl.php" class="btn btn-secondary">Plan lessens</a>
       </div>
     </div>
-<?php include_once('footer.php'); ?>
+<?php include_once(view('footer.php')); ?>

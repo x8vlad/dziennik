@@ -1,7 +1,8 @@
 <?php
 // session_start();
 // include_once('database.php');
-include_once('header.php');
+    include_once(__DIR__ . '/../config/config.php');
+    include_once(view('header.php'));
 ?>
 
 <div class="container my-5">
@@ -18,8 +19,8 @@ include_once('header.php');
             </tr>
           <tbody id="table-body-lessens"> 
             <!-- tableAJAXlessns php require_once('table-lessensAJAX.php'); ?> -->
-            
-            <?php require_once('table-lessensAJAX.php'); ?>
+            <!-- также /controllers/table.. -->
+            <?php require_once(controller('table-lessensAJAX.php')); ?> 
         </tbody>
           </table> 
        
@@ -59,9 +60,9 @@ include_once('header.php');
 
         <hr class="col-1 my-4">
 
-        <a href="messages.tpl.php" class="btn btn-primary">Messages</a>
-        <a href="ogloszenia.tpl.php" class="btn btn-secondary">ogloszenia</a>
+        <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary">Messages</a>
+        <a href="<?= BASE_URL ?>view/ogloszenia.tpl.php" class="btn btn-secondary">ogloszenia</a>
     </div>
 </div>
 
-<?php include_once('footer.php'); ?>
+<?php include_once(view('footer.php')); ?>

@@ -1,6 +1,8 @@
 <?php
   // т е аналог для mysqli_fetch_assoc()
-  include_once('database.php');
+  include_once(__DIR__ . '/../config/config.php');
+  include_once(ROOT_PATH  . '/database.php');
+  
   $result = $conn->query("SELECT * FROM announcement ORDER BY created_at ASC");
 
   while($row = $result->fetch(PDO::FETCH_ASSOC)){

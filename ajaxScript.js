@@ -1,6 +1,28 @@
+// console.log("Work");
+console.log(BASE_URL);
+
 // $-мейн пермнная 
 function loading(){
     $("div.text-center").show();
+}
+// fn 
+function ShowPlann(activePage){
+    // console.log(BASE_URL);
+    // console.log("BASE_URL =", BASE_URL);
+    $.ajax({
+        
+        url: BASE_URL + 'controllers/table-lessensAJAX.php',
+        method: 'POST',
+        data: {activePage}, // тож самое что и {activePage : activePage}
+        success: function(response){
+            // console.log(response);
+            $("#table-body-lessens").html(response);
+            // $("div.text-center").hide();
+        },
+        error: function(xhr) {
+            console.log('Error:', xhr.status, xhr.statusText);
+        }
+    });
 }
 
 $(document).ready(function(){
@@ -36,20 +58,7 @@ $(document).ready(function(){
                         }
 
                         localStorage.setItem('day', currentDay);
-                        
-                        $.ajax({
-                            url: 'table-lessensAJAX.php',
-                            method: 'POST',
-                            data: {activePage: currentDay},
-                            success: function(response){
-                                // console.log(response);
-                                $("#table-body-lessens").html(response);
-                                // $("div.text-center").hide();
-                            },
-                            error: function(xhr) {
-                                console.log('Error:', xhr.status, xhr.statusText);
-                            }
-                        });
+                        ShowPlann(currentDay);
                     });
 
                 }else{
@@ -63,34 +72,18 @@ $(document).ready(function(){
                         console.log(activePage);
                         event.preventDefault();
                         
-                        $.ajax({
-                            url: 'table-lessensAJAX.php',
-                            method: 'POST',
-                            data: { activePage: activePage },
-                            // beforeSend: loading,
-                            success: function(response){
-                                // console.log(activePage);
-                                console.log(response);  
-                                    $("#table-body-lessens").html(response);
-                                // $("div.text-center").hide();
-                            },
-                            error: function(xhr) {
-                            console.log('Error:', xhr.status, xhr.statusText);
-                            }
-                        });
+                        ShowPlann(activePage);
                     });
                 }
             });     
         });
     // })
-        
-    
-
 
     // let mainBlock = $("#mainBlock");
     
     // for DELEGATE events
     $(document).on('click', '.editBtn', function() {
+        console.log("click on editBtn");
         let id=$(this).data('id');
         // Нужно подняться к родительскому <tr> и найти .announcement-title:
         let title = $(this).closest('tr').find('.announcement-title').data('title');
@@ -118,18 +111,18 @@ $(document).ready(function(){
     // Total Editing date:
     $("#TotalEditModal").on('click', function(event){
         event.preventDefault();
-        // console.log(23);
+        // console.log(23); для  url: 'edit_announcement.php', и url: 'table-contentAJAX.php', убрал /
         $.ajax({
-            url: 'edit_announcement.php',
+            url:  BASE_URL + 'controllers/edit_announcement.php',
             method: 'POST',
             data: $("#FormForEdit").serialize(),
             beforeSend: loading,
             success:function(response){
                 console.log($("#FormForEdit").serialize());
                 // добавялем те эдитированные данные
-                    event.preventDefault();    
+                    // event.preventDefault();    
                     $.ajax({
-                        url: 'table-contentAJAX.php',
+                        url: BASE_URL + 'controllers/table-contentAJAX.php',
                         method: 'POST',
                         success:function(response){
                             // console.log("NORM");
@@ -150,15 +143,19 @@ $(document).ready(function(){
         event.preventDefault();
         $.ajax({
         // юрл ссылка на файл с нужным тебе запросом(куда мы отпраялем данные)
-        url: 'remove_announcement.php',
+        url: BASE_URL + 'controllers/remove_announcement.php',
         // вся информация о том что ввели
         method: 'POST',
         beforeSend: loading,
         //функция которая выплнится если запрос успешен(стутс 200 и Редистатус 4)
         success:function(response){
             // искючаем 1
-            $("table tr").not(":first").remove();
-            // $("table tr#for_remover").remove();
+            if(response.trim() === "ok"){
+                // удаляем строки из таблицы
+                $("table tr").not(":first").remove();
+            } else {
+                console.error("Ошибка при удалении: ", response);
+            }
             $("div.text-center").hide();
         }
         }); 
@@ -171,7 +168,7 @@ $(document).ready(function(){
         // console.log("id record to remove : " + id);
         event.preventDefault();
         $.ajax({
-            url: 'remove-record.php',
+            url: BASE_URL + 'controllers/remove-record.php',
             method: 'POST',
             data: { id: id },
             beforeSend: loading,
@@ -192,7 +189,7 @@ $(document).ready(function(){
         let password_confirm = $("#password_confirm").val();
         
         $.ajax({
-            url: 'register.php',
+            url: BASE_URL + 'controllers/register.php',
             method: 'POST',
             data: { 
                 login: login_input, 
@@ -249,7 +246,5 @@ $(document).ready(function(){
             $("#loginBlock").hide();
             $("#headerRegister").show();
             $("#headerLogin").hide();
-        });
-
-    
+        });    
 });      

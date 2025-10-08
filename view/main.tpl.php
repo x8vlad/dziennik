@@ -1,7 +1,8 @@
 <?php
   // session (мб надо бует ввер в new тег пхп перенси) MAIN PAGE
   session_start();
-  include_once('header.php');
+  include_once(__DIR__ . '/../config/config.php');
+  include_once(view('header.php'));
 ?>
     <div class="container my-5">
       <h1>Hello, world!</h1>
@@ -15,7 +16,7 @@
 
       <hr class="col-1 my-2">
         <div class="card shadow-lg p-4 mb-5 rounded" style="background-color: #e8ecf1ff" id="registerBlock">
-        <form action="register.php" method="POST">
+        <form action="<?= BASE_URL ?>controllers/register.php" method="POST">
           <!-- login -->
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Login</label>
@@ -52,7 +53,7 @@
     <!-- login form -->
      <div class="card shadow-lg p-4 mb-5 rounded" style="background-color: #e8ecf1ff; display:none;" id="loginBlock">
      <!-- "  -->
-     <form action="login.php" method="POST">
+     <form action="<?= BASE_URL ?>controllers/login.php" method="POST">
       <!-- login pole -->
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Login</label>
@@ -69,13 +70,12 @@
       <p class="text-body-secondary">
             No have an account? <a href="#" class="text-reset" id="registerInLink">Register</a>
       </p>
+     </form>
     </div>
 
       <p class="fs-6">The next page is</p>
-      <a href="messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
+      <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
       </div>
     </div>
     
-<?php
-    include_once('footer.php');
-?>
+<?php include_once(view('footer.php')); ?>

@@ -1,6 +1,7 @@
 
 <?php
-include_once(__DIR__ . '/../database.php');
+include_once(__DIR__ . '/../config/config.php');
+include_once(ROOT_PATH  . '/database.php');
 
 $query = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
@@ -70,4 +71,6 @@ function color_сell($grade){
     elseif($grade < 5) {return 'table-warning';}
     else {return 'table-success';}
 }
-include_once(__DIR__ . '/../grates.tpl.php');
+// var_dump($subjects);
+// exit;
+include_once(view('grates.tpl.php'));

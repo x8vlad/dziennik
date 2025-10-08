@@ -2,27 +2,27 @@
     $munuLinks = [
         [
             'lable' => 'main page',
-            'url' => '/ja/projectPHP/dziennik/main.tpl.php',
+            'url' => '/ja/projectPHP/dziennik/view/main.tpl.php',
         ],
         [
             'lable' => 'messages',
-            'url' => '/ja/projectPHP/dziennik/messages.tpl.php',
+            'url' => '/ja/projectPHP/dziennik/view/messages.tpl.php',
         ],
         [
             'lable' => 'planLessens',
-            'url' => '/ja/projectPHP/dziennik/planLessens.tpl.php',
+            'url' => '/ja/projectPHP/dziennik/view/planLessens.tpl.php',
         ],
         [
             'lable' => 'announcement',
-            'url' => '/ja/projectPHP/dziennik/ogloszenia.tpl.php',
+            'url' => '/ja/projectPHP/dziennik/view/ogloszenia.tpl.php',
         ],
         [
             'lable' => 'attendance',
-            'url' => '/ja/projectPHP/dziennik/attendance.php',
+            'url' => '/ja/projectPHP/dziennik/controllers/attendance.php',
         ],
         [
             'lable' => 'Grate',
             'url' => '/ja/projectPHP/dziennik/controllers/grades.php',
         ],
     ];
-require_once('assets/index.tpl.php'); 
+require_once(ROOT_PATH . '/assets/index.tpl.php'); 

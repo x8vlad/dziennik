@@ -1,5 +1,6 @@
 <?php 
-    include_once('database.php');
+    include_once(__DIR__ . '/../config/config.php');
+    include_once(ROOT_PATH  . '/database.php');
 ?>
  
 <?php   
@@ -13,11 +14,11 @@
         // $stmt->execute();
         
         if ($stmt->execute()) {
-            header('Location: ogloszenia.tpl.php');
+            header('Location: ' . BASE_URL .'view/ogloszenia.tpl.php');
             exit(); 
         }
     }
-    include_once('header.php');
+    include_once(view('header.php'));
 ?>
 
   <div class="container my-5">
@@ -35,5 +36,5 @@
     </form>
   </div>
 <?php 
-    include_once('footer.php');
+    include_once(view('footer.php'));
 ?>

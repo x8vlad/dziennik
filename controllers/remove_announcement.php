@@ -1,6 +1,7 @@
 <?php 
-    include_once('header.php');
-    include_once('database.php');
+    include_once(__DIR__ . '/../config/config.php');
+
+    include_once(ROOT_PATH  . '/database.php');
 ?>
 
 <?php
@@ -9,9 +10,6 @@
     $stmt = $conn->prepare($remove_data_query);
     $conn->exec($remove_data_query);
     //mysqli_query($conn, $remove_data_query);
-    
+    echo "ok";
 ?>
 
-<?php
-    include_once('footer.php');
-?>

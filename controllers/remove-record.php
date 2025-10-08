@@ -1,4 +1,7 @@
-<?php include_once('database.php');?>
+<?php 
+    include_once(__DIR__ . '/config/config.php');
+    include_once(ROOT_PATH  . '/database.php');
+?>
 
 <?php
     $id = $_POST['id'] ?? null;

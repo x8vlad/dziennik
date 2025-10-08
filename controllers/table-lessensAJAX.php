@@ -1,5 +1,7 @@
 <?php
-    include_once('database.php');
+    include_once(__DIR__ . '/../config/config.php');
+    include_once(ROOT_PATH  . '/database.php');
+
     $day = (int)($_POST['activePage'] ?? 1);
     $table_class = [ '-primary', '-secondary','-success', '-danger', '-warning', '-light', '-dark' ];
     $i = 0;
