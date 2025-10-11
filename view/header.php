@@ -18,7 +18,7 @@
         ],
         [
             'lable' => 'attendance',
-            'url' => '/ja/projectPHP/dziennik/controllers/attendance.php',
+            'url' => '/ja/projectPHP/dziennik/view/attendance.tpl.php',
         ],
         [
             'lable' => 'Grate',

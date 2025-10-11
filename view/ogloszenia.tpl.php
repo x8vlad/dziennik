@@ -72,6 +72,6 @@
         <br><br>
 
         <a href="<?= BASE_URL ?>view/planLessens.tpl.php" class="btn btn-primary">plan lessens</a>
-        <a href="<?= BASE_URL ?>/controllers/attendance.php" class="btn btn-secondary">attendance</a>
+        <a href="<?= BASE_URL ?>/view/attendance.tpl.php" class="btn btn-secondary">attendance</a>
     </div>
 <?php include_once(view('footer.php')); ?>

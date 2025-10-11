@@ -14,5 +14,6 @@
       echo '<td>' . $row['created_at'] . '</td>';
       echo '<td><button class="btn btn-outline-dark editBtn me-2" data-id="'.$row['id'].'">Edit</button>';
       echo '<button class="btn btn-outline-danger DeleteBtn" data-id="'.$row['id'].'">Delete</button></td>';
+      // echo '<script>console.log("Button ID: ' . $row['id'] . '");</script>'; k its work
     echo '</tr>';
   }

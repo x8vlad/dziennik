@@ -1,4 +1,5 @@
 // console.log("Work");
+$(document).ready(function(){
 console.log(BASE_URL);
 
 // $-мейн пермнная 
@@ -25,8 +26,8 @@ function ShowPlann(activePage){
     });
 }
 
-$(document).ready(function(){
-    //console.log("READY!");
+
+    console.log("READY!");
 
     // $(document).on('click', '.MenuBlock', function(e){
         $('.form-check-input').on('click', function(e){
@@ -163,9 +164,11 @@ $(document).ready(function(){
 
     // remove this record
     $(document).on('click', '.DeleteBtn', function(event) {
+    console.log("clicked on delet btn");
+    // $(".DeleteBtn").on('click', function(event){
         let id = $(this).data('id');
         // console.log(id);
-        // console.log("id record to remove : " + id);
+      
         event.preventDefault();
         $.ajax({
             url: BASE_URL + 'controllers/remove-record.php',
@@ -173,12 +176,15 @@ $(document).ready(function(){
             data: { id: id },
             beforeSend: loading,
             success: function(){
+                console.log("id record to remove : " + id);
                 $(`#announcement-${id}`).remove();
                 console.log($(`#announcement-${id}`));
                 $("div.text-center").hide();
             }
         });
     });
+
+
 
     $("#registerBtn").on('click', function(e){
         e.preventDefault(); 
