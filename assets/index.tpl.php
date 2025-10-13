@@ -37,6 +37,11 @@
                 </li>"; } -->
           </ul>
           <!-- for searching info -->
+          <!-- Login name надо будет менять -->
+          <span class="text-white me-2 mx-3">You are logged in as:</span>
+          <span class="fw-bold text-white ms-3 mx-5" id="loginName">Student</span>
+
+          
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>

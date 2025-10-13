@@ -186,50 +186,13 @@ function ShowPlann(activePage){
 
 
 
-    $("#registerBtn").on('click', function(e){
-        e.preventDefault(); 
-        // найти тут перменные для отправки!
-        let login_input = $("#login_input").val();
-        let email_input = $("#email_input").val();
-        let password_input = $("#password_input").val();
-        let password_confirm = $("#password_confirm").val();
-        
-        $.ajax({
-            url: BASE_URL + 'controllers/register.php',
-            method: 'POST',
-            data: { 
-                login: login_input, 
-                email: email_input, 
-                password: password_input, 
-                password_confirm: password_confirm
-            },
-            success: function(){
-                // show alert
-                $("#liveAlertPlaceholder").html(`
-                <div class="alert alert-success alert-dismissible fade show" id="alertSuccess" role="alert">
-                <div>you are registered</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>`);
-                
-                setTimeout(function(){
-                    $("#alertSuccess").alert('close');
-                }, 2000);
-                // console.log(login_input + " " + email_input + " " + password_input + " " +  password_confirm + " "); 
-            },
-            error: function(){
-                $("#liveAlertPlaceholder").html(`
-                <div class="alert alert-danger alert-dismissible fade show" id="alertSuccess" role="alert">
-                <div>Some worng with password or login</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>`);
-                
-                setTimeout(function(){
-                    $("#alertSuccess").alert('close');
-                }, 2000);
-            }
-        });
-        // console.log("registerred");
+    // register and login code firstly change loginName on the main page(as Stdudent or teacher or admin)
+
+    $("#loginName").on("click", function(event){
+        console.log("You are student");
     });
+
+   
 
     $("#loginBtn").on('click', function(e){
         e.preventDefault(); 

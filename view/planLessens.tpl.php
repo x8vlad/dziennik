@@ -2,7 +2,7 @@
 // session_start();
 // include_once('database.php');
     include_once(__DIR__ . '/../config/config.php');
-    include_once(view('header.php'));
+    include_once(controller('header.php'));
 ?>
 
 <div class="container my-5">

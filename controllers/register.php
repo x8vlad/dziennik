@@ -1,24 +1,22 @@
-<?php 
+<?php
+include '../classes/Dbh.classes.php'; 
+include '../classes/SignUpModule.classes.php'; 
+include '../classes/SignUpControl.classes.php'; 
+
 session_start();
 
-$login = $_POST['login'] ?? null;
-$email = $_POST['email'] ?? null;
-$password = $_POST['password'] ?? null;
-$confirm_password = $_POST['password_confirm'] ?? null;
+if (isset($_POST['submit'])) {
+    // grab data
+    $login = $_POST['login'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirm_password = $_POST['password_confirm'] ?? '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($login) && !empty($password) && !empty($confirm_password)) {
-        if($password === $confirm_password){
-            $_SESSION['login'] = $login;    
-            $_SESSION['email'] = $email;    
-            $_SESSION['password'] = $password;    
-            $_SESSION['password_confirm'] = $confirm_password;    
-        }
-    }else{
-            // error
-            http_response_code(400);
-            exit();
-    }
+    // Instantiate SignUpControl
+    $signup = new SignUpControl($login, $email, $password, $confirm_password);
+    $signup->signUpUser();
+
+    // если код дошёл до сюда — ошибок нет
+    header("Location: ../view/main.tpl.php?error=none");
+    exit();
 }
-
-// echo $login . "\n" . $email . "\n" . $password . "\n" . $confirm_password;
