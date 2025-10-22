@@ -1,0 +1,25 @@
+Constructor called: goga
+goga 
+Constructor called: goga
+goga 
+1
+ super: goga 
+goga, 123456
+NewUser 
+Constructor called: NewUser
+NewUser 
+1
+ super: NewUser 
+NewUser, popa123
+NewUser 
+Constructor called: NewUser
+NewUser 
+1
+ super: NewUser 
+NewUser, popa123
+goga 
+Constructor called: goga
+goga 
+1
+ super: goga 
+goga, 123456

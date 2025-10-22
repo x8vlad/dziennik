@@ -7,6 +7,8 @@ class SignUpControl {
     private $pwd_confirm;
 
     public function __construct($login, $email, $pwd, $pwd_confirm){
+                // file_put_contents("../testSystem.txt", "Constructor called: $login\n", FILE_APPEND);
+
         $this->login = $login;
         $this->email = $email;
         $this->pwd = $pwd;
@@ -47,35 +49,36 @@ class SignUpControl {
     }
 
     // method which check if date is empty return boolean\
-    // $result = false;
+    // $result = false; МЕТОДЫ ДЛЯ ВААЛИДАТОРИНГА
     //               ДАННЫЕ ЗАПОЛЕНЕНЫ 
-    private function isDataFilled(){
-       
+    protected function isDataFilled(){
+    // if empty   
         if(empty($this->login) || empty($this->email) || empty($this->pwd) || empty($this->pwd_confirm)){
             return false;
         }else{return true;}
         // return $result;
     }
+
     //ivalid login
-    private function isValidLogin(){
+    protected function isValidLogin(){
         // $result = true;
         if(preg_match("/^[a-zA-Z0-9]*$/", $this->login)){
             return true;
         }else{return false;}
     }
     //valid email
-    private function isValidEmail(){
+    protected function isValidEmail(){
         if(filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             return true;
         }else{return false;}
     }
     // match pwd
-    private function isPwdMatch(){
+    protected function isPwdMatch(){
         if($this->pwd == $this->pwd_confirm){return true;}
         else{return false;}
     }
 
-    private function isUserTaken(){
+    protected function isUserTaken(){
         $signup = new SignUp();
         if($signup->isUserExists($this->login,$this->email)){return true;}
         else{return false;}

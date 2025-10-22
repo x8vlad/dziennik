@@ -188,16 +188,16 @@ function ShowPlann(activePage){
 
     // register and login code firstly change loginName on the main page(as Stdudent or teacher or admin)
 
-    $("#loginName").on("click", function(event){
-        console.log("You are student");
-    });
+    // $("#loginName").on("click", function(event){
+    //     console.log("You are student");
+    // });
 
    
 
-    $("#loginBtn").on('click', function(e){
-        e.preventDefault(); 
-        console.log("login");
-    });
+    // $("#loginBtn").on('click', function(e){
+    //     // e.preventDefault(); 
+    //     console.log("login");
+    // });
 
     // in register form to login
         $("#signInLink").on('click', function(e){

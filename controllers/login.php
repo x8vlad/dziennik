@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<h1>ПЕРВ</h1>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-        // когад вышел (ссылка логаута) то uset session 
-    ?>
-</body>
-</html>
+<?php
+include '../classes/Dbh.classes.php'; 
+include '../classes/LogInModule.classes.php'; 
+include '../classes/LogInControl.classes.php'; 
+
+include '../classes/SignUpControl.classes.php'; 
+
+session_start();
+
+if (isset($_POST['submit'])) {
+    // grab data
+    $login = $_POST['login'] ?? '';
+    $password = $_POST['password'] ?? '';
+    file_put_contents("../testSystem.txt", "$login \n", FILE_APPEND);
+
+    // Instantiate LogInControl
+    $log_in = new LogInControl($login, $password);
+    $log_in->LogInUser();
+
+    // если код дошёл до сюда — ошибок нет
+    header("Location: ../view/main.tpl.php?error=none");
+    exit();
+}
