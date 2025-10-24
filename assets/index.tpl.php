@@ -38,10 +38,11 @@
           </ul>
           <!-- for searching info -->
           <!-- Login name надо будет менять -->
-          <span class="text-white me-2 mx-3">You are logged in as:</span>
+          
           <?php if(isset($_SESSION['user'])): ?>
+          <span class="text-white me-2 mx-3">You are logged in as:</span>
           <span class="fw-bold text-white ms-3 mx-5" id="loginName"><?php echo $_SESSION['user']; ?></span>
-          <button class="btn btn-outline-danger" href="classes/logOut.classes.php" type="submit">Log Out</button>
+          <a class="btn btn-outline-danger mx-2" id="logOutBtn" href="../controllers/logOut.php" type="submit">Log Out</a>
           <?php endif?>
           
           <form class="d-flex" role="search">

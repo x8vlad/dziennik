@@ -29,3 +29,7 @@ Succsess login: TestIT and 0908
 Succsess login: Testit and 1234 
 Succsess login: Testit and 1234 
 Succsess login: NewUser and popa123 
+Succsess register: admin and admin@gmail.com and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
