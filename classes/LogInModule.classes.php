@@ -7,10 +7,10 @@ class LogIn extends Dbh {
         $stmt = $this->connect()->prepare($query_select);
         // $stmt->execute([$login]);
         $stmt->bindValue(":login", $login);
-        file_put_contents("../testSystem.txt", "$login \n", FILE_APPEND);
+        // file_put_contents("../testSystem.txt", "$login \n", FILE_APPEND);
         $stmt->execute();
         
-        file_put_contents("../testSystem.txt", $stmt->rowCount() .  "\n", FILE_APPEND);
+        // file_put_contents("../testSystem.txt", $stmt->rowCount() .  "\n", FILE_APPEND);
        
         if($stmt->rowCount() > 0){
             // $row_for_pwd = mysqli_fetch_assoc($query_select);
@@ -22,14 +22,14 @@ class LogIn extends Dbh {
             // echo 'Пароль правильный';
             // закидуем юезра в сешен
                 $_SESSION['user'] = $login;
-                file_put_contents("../testSystem.txt", " super: $login \n", FILE_APPEND);
+                // file_put_contents("../testSystem.txt", " super: $login \n", FILE_APPEND);
                 return true;
                 
             } else {
                 // echo 'Пароль не правильный';э
                 // header("location: ../view/main.tpl.php");
                 // exit();
-                file_put_contents("../testSystem.txt", "ERROR \n", FILE_APPEND);
+                // file_put_contents("../testSystem.txt", "ERROR \n", FILE_APPEND);
                 return false;
             }
         }

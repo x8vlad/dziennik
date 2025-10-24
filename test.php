@@ -7,6 +7,20 @@
 </head>
 <body>
 
+    <?php
+        // session_statr();
+        class UnsetUser{
+            // Поля
+            //constuctor
+
+            // methods which will be unset like:
+            private function unsetUser($login){
+                session_unset();
+            }
+            
+        }
+    ?>
+
     <form action="" method="post">
         <input type="text" name="login" placeholder="Login" required>
         <input type="password" name="pwd" placeholder="Password" required>

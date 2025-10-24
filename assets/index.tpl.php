@@ -39,8 +39,10 @@
           <!-- for searching info -->
           <!-- Login name надо будет менять -->
           <span class="text-white me-2 mx-3">You are logged in as:</span>
-          <span class="fw-bold text-white ms-3 mx-5" id="loginName">Student</span>
-
+          <?php if(isset($_SESSION['user'])): ?>
+          <span class="fw-bold text-white ms-3 mx-5" id="loginName"><?php echo $_SESSION['user']; ?></span>
+          <button class="btn btn-outline-danger" href="classes/logOut.classes.php" type="submit">Log Out</button>
+          <?php endif?>
           
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

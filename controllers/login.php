@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     // grab data
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
-    file_put_contents("../testSystem.txt", "$login \n", FILE_APPEND);
+    file_put_contents("../testSystem.txt", "Succsess login: $login and $password \n", FILE_APPEND);
 
     // Instantiate LogInControl
     $log_in = new LogInControl($login, $password);

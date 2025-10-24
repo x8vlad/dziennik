@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
     // Instantiate SignUpControl
     $signup = new SignUpControl($login, $email, $password, $confirm_password);
     $signup->signUpUser();
+    file_put_contents("../testSystem.txt", "Succsess register: $login and $email and $password \n", FILE_APPEND);
 
     // если код дошёл до сюда — ошибок нет
     header("Location: ../view/main.tpl.php?error=none");

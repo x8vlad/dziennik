@@ -6,7 +6,7 @@ class LogInControl{
 
     public function __construct($login, $pwd)
     {
-        file_put_contents("../testSystem.txt", "Constructor called: $login\n", FILE_APPEND);
+        // file_put_contents("../testSystem.txt", "Constructor called: $login\n", FILE_APPEND);
         $this->login = $login;
         $this->pwd = $pwd;
     }
@@ -27,7 +27,7 @@ class LogInControl{
         }
 
         if($log_in->selectUser($this->login, $this->pwd)){
-            file_put_contents("../testSystem.txt", "$this->login, $this->pwd\n", FILE_APPEND);
+            // file_put_contents("../testSystem.txt", "$this->login, $this->pwd\n", FILE_APPEND);
         }else{
             header("location: ../view/main.tpl.php?error=wrongUser");
             exit();

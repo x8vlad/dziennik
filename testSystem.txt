@@ -23,3 +23,9 @@ goga
 1
  super: goga 
 goga, 123456
+Succsess register: TestIT and TestIT@gmail.pl and 0908 
+Succsess login: TestIT and 0809 
+Succsess login: TestIT and 0908 
+Succsess login: Testit and 1234 
+Succsess login: Testit and 1234 
+Succsess login: NewUser and popa123 
