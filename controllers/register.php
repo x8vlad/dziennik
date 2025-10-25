@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $confirm_password = $_POST['password_confirm'] ?? '';
 
     // Instantiate SignUpControl
-    $signup = new SignUpControl($login, $email, $password, $confirm_password);
+    $signup = new SignUpControl($login, $email, $password, $role ,$confirm_password);
     $signup->signUpUser();
     file_put_contents("../testSystem.txt", "Succsess register: $login and $email and $password \n", FILE_APPEND);
 

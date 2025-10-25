@@ -216,8 +216,5 @@ function ShowPlann(activePage){
             $("#headerRegister").show();
             $("#headerLogin").hide();
         });   
-        
-        $("#logOutBtn").on('click', function(e){
-            e.preventDefault(); 
-        });
+    
 });      

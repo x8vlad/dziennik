@@ -3,8 +3,6 @@ include '../classes/Dbh.classes.php';
 include '../classes/LogInModule.classes.php'; 
 include '../classes/LogInControl.classes.php'; 
 
-include '../classes/SignUpControl.classes.php'; 
-
 session_start();
 
 if (isset($_POST['submit'])) {

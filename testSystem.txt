@@ -33,3 +33,31 @@ Succsess register: admin and admin@gmail.com and ADMIN
 Succsess login: admin and ADMIN 
 Succsess login: admin and ADMIN 
 Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: NewUser and popa123 
+Succsess login: NewUser and popa123 
+Succsess login: x8vlad and 123 
+Succsess login: 121212 and 1123 
+Succsess login: jas and 123 
+Succsess login:  and  
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIn 
+Succsess login: admin and ADMIN 
+Succsess register: newV and newV@gmail.com and newV 
+Succsess login: newV and newV 
+Succsess login: TestIT and 0908 
+Succsess register: newUser and newUser_u@gmail.com and newUser 
+Succsess login: newUser and newUser 
+Succsess login: newUser and newUser 
+Succsess login: newUser and newUser 
+Succsess register: admin and admin@admin.eu and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login:  and  
+Succsess login: newUser and newUser 
+Succsess register: testStudent and testStudent_s@gm.cm and testStudent 
+Succsess register: stusdet and stusdet_s@gmail.com and stusdet 
+Succsess register: TotallChekc and TotallChekc_s@gm.com and TotallChekc 
+Succsess register: checkStudent and checkStudent_s@mi.eu and checkStudent 
+Succsess register: checkTeacer and checkTeacer_t@pl.cm and checkTeacer 

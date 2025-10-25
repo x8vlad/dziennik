@@ -4,14 +4,16 @@ class SignUpControl {
     private $login;
     private $email;
     private $pwd;
+    private $role;
     private $pwd_confirm;
 
-    public function __construct($login, $email, $pwd, $pwd_confirm){
+    public function __construct($login, $email, $pwd, $role, $pwd_confirm){
                 // file_put_contents("../testSystem.txt", "Constructor called: $login\n", FILE_APPEND);
 
         $this->login = $login;
         $this->email = $email;
         $this->pwd = $pwd;
+        $this->role = $role;
         $this->pwd_confirm = $pwd_confirm;
     }   
 
@@ -43,7 +45,7 @@ class SignUpControl {
             header("location: ../view/main.tpl.php?error=UserTaken");
             exit();
         }
-        $signup->setUser($this->login,$this->email,$this->pwd);   
+        $signup->setUser($this->login,$this->email,$this->pwd, $this->role);   
 
        
     }

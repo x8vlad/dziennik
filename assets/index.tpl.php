@@ -40,9 +40,9 @@
           <!-- Login name надо будет менять -->
           
           <?php if(isset($_SESSION['user'])): ?>
-          <span class="text-white me-2 mx-3">You are logged in as:</span>
-          <span class="fw-bold text-white ms-3 mx-5" id="loginName"><?php echo $_SESSION['user']; ?></span>
-          <a class="btn btn-outline-danger mx-2" id="logOutBtn" href="../controllers/logOut.php" type="submit">Log Out</a>
+          <span class="text-white me-1">You are logged in as:</span>
+          <span class="fw-bold text-white ms-1 mx-2" id="loginName"><?php echo $_SESSION['user']; ?></span>
+          <a class="btn btn-outline-danger mx-3" id="logOutBtn" href="../controllers/logOut.php" type="submit">Log Out</a>
           <?php endif?>
           
           <form class="d-flex" role="search">
