@@ -1,31 +1,34 @@
-
 <?php
 include_once(__DIR__ . '/../config/config.php');
-include_once(ROOT_PATH  . '/database.php');
+include_once('../classes/Dbh.classes.php');
 
 $query = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
               WHERE user_id=1 GROUP BY `grades`.`sub_id`;";
 
-$result =  $conn->query($query);
+$stmt = Dbh::getInstance()->connect()->prepare($query);
+$stmt->execute();
+if($stmt->rowCount()>0) {
+    $result = Dbh::getInstance()->connect()->query($query);
 
-$totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
+    $totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
 
+    $query1 = "SELECT sub_id, AVG(grade) AS grade_first FROM `grades` 
+    WHERE created_ad < '2025-05-08' AND user_id=1
+    GROUP BY sub_id;";
+}
 
-$query1 = "SELECT sub_id, AVG(grade) AS grade_first FROM `grades` 
-WHERE created_ad < '2025-05-08' AND user_id=1
-GROUP BY sub_id;";
-$result =  $conn->query($query1);
-//$totalQuery1 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$totalQuery1 = $result->fetchAll(PDO::FETCH_ASSOC);
+// $result =  $conn->query($query1);
+// //$totalQuery1 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// $totalQuery1 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-// period 2
-$query2 = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
-WHERE created_ad > '2025-05-08' AND user_id=1
-GROUP BY sub_id;";
-$result =  $conn->query($query2);
-//$totalQuery2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$totalQuery2 = $result->fetchAll(PDO::FETCH_ASSOC);
+// // period 2
+// $query2 = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
+// WHERE created_ad > '2025-05-08' AND user_id=1
+// GROUP BY sub_id;";
+// $result =  $conn->query($query2);
+// //$totalQuery2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// $totalQuery2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
 //echo '<pre>';
 // var_dump($totalQuery, $totalQuery1, $totalQuery2);
@@ -34,8 +37,8 @@ $totalQuery2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
 $allArray = [];
 foreach($totalQuery as $item) { $allArray[] = $item; }
-foreach($totalQuery1 as $item){ $allArray[] = $item; }
-foreach($totalQuery2 as $item){ $allArray[] = $item; }
+// foreach($totalQuery1 as $item){ $allArray[] = $item; }
+// foreach($totalQuery2 as $item){ $allArray[] = $item; }
 
 // print_r($allArray);
 
@@ -53,17 +56,17 @@ foreach ($totalQuery as $item) {
     }
 }
 
-foreach ($totalQuery1 as $item) {
-    $subId = $item['sub_id'];
+// foreach ($totalQuery1 as $item) {
+//     $subId = $item['sub_id'];
 
-    $subjects[$subId]['first_grade'] = $item['grade_first'];
-}
+//     $subjects[$subId]['first_grade'] = $item['grade_first'];
+// }
 
-foreach ($totalQuery2 as $item) {
-    $subId = $item['sub_id'];
+// foreach ($totalQuery2 as $item) {
+//     $subId = $item['sub_id'];
 
-    $subjects[$subId]['second_grade'] = $item['grade_second'];
-}
+//     $subjects[$subId]['second_grade'] = $item['grade_second'];
+// }
 
 
 function color_сell($grade){
@@ -73,4 +76,4 @@ function color_сell($grade){
 }
 // var_dump($subjects);
 // exit;
-include_once(view('grates.tpl.php'));
+include_once(view('grades.tpl.php'));
