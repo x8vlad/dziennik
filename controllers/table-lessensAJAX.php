@@ -1,6 +1,6 @@
 <?php
     include_once(__DIR__ . '/../config/config.php');
-    include_once(ROOT_PATH  . '/database.php');
+    include_once('../classes/Dbh.classes.php');
 
     $day = (int)($_POST['activePage'] ?? 1);
     $table_class = [ '-primary', '-secondary','-success', '-danger', '-warning', '-light', '-dark' ];
@@ -12,15 +12,20 @@
                 WHERE lessens.weekday = $day
                     ORDER BY lessens.num_less ASC";
 
-    $result = $conn->query($query);    
+    $stmt = Dbh::getInstance()->connect()->prepare($query);
+    $stmt->execute();
+
+    if($stmt->rowCount()>0){
+        $result = Dbh::getInstance()->connect()->query($query);    
    
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo '<tr class="table' . $table_class[$i] . '">';
-        echo '<td>' . $row['num_less'] . '</td>';
-        echo '<td>' . $row['name_subject'] . '</td>';
-        echo '<td>' . $row['start_less'] . '</td>';
-        echo '<td>' . $row['end_less'] . '</td>';
-        echo '<td>' . $row['classroom'] . '</td>';
-        echo '</tr>';
-        $i++;
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            echo '<tr class="table' . $table_class[$i] . '">';
+            echo '<td>' . $row['num_less'] . '</td>';
+            echo '<td>' . $row['name_subject'] . '</td>';
+            echo '<td>' . $row['start_less'] . '</td>';
+            echo '<td>' . $row['end_less'] . '</td>';
+            echo '<td>' . $row['classroom'] . '</td>';
+            echo '</tr>';
+            $i++;
+        }
     }
