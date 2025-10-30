@@ -27,23 +27,24 @@ $result = Dbh::getInstance()->connect()->query($queryFirstGrade);
 
 $totalQueryFirstGrade = $result->fetchAll(PDO::FETCH_ASSOC);
 
-// // period 2
-// $query2 = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
-// WHERE created_ad > '2025-05-08' AND user_id=1
-// GROUP BY sub_id;";
-// $result =  $conn->query($query2);
-// //$totalQuery2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// $totalQuery2 = $result->fetchAll(PDO::FETCH_ASSOC);
+// period 2
+$querySecondGrade = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
+WHERE created_ad > '2025-05-08' AND user_id=1
+GROUP BY sub_id;";
+$stmt = Dbh::getInstance()->connect()->prepare($querySecondGrade);
+$stmt->execute();
+$result = Dbh::getInstance()->connect()->query($querySecondGrade);
 
+$totalQuerySecondGrade = $result->fetchAll(PDO::FETCH_ASSOC);
 //echo '<pre>';
 // var_dump($totalQuery, $totalQuery1, $totalQuery2);
 
 //$finallArr=array_merge($totalQuery, $totalQuery1, $totalQuery2);
 
 $allArray = [];
-foreach($totalQueryFirstGrade as $item) { $allArray[] = $item; }
-foreach($totalQueryFirstGrade as $item){ $allArray[] = $item; }
-// foreach($totalQuery2 as $item){ $allArray[] = $item; }
+foreach($totalQuery as $item) { $allArray[] = $item; } // avg
+foreach($totalQueryFirstGrade as $item){ $allArray[] = $item; } // first grade
+foreach($totalQuerySecondGrade as $item){ $allArray[] = $item; } // second grade
 
 // print_r($allArray);
 
@@ -67,11 +68,11 @@ foreach ($totalQueryFirstGrade as $item) {
     $subjects[$subId]['first_grade'] = $item['grade_first'];
 }
 
-// foreach ($totalQuery2 as $item) {
-//     $subId = $item['sub_id'];
+foreach ($totalQuerySecondGrade as $item) {
+    $subId = $item['sub_id'];
 
-//     $subjects[$subId]['second_grade'] = $item['grade_second'];
-// }
+    $subjects[$subId]['second_grade'] = $item['grade_second'];
+}
 
 
 function color_сell($grade){

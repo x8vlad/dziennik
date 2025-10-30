@@ -6,6 +6,11 @@
 <div class="container my-5">
   <table class="table">
     <thead>
+      <th>Name subject</th>
+      <th>ID subject</th>
+      <th>AVG grade</th>
+      <th>First period</th>
+      <th>Second period</th>
   <tbody>
    <?php foreach($subjects as $items): ?>
         <tr>
