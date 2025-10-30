@@ -1,26 +1,31 @@
 <?php
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
-
-$query = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
+// avg grade
+$queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
               WHERE user_id=1 GROUP BY `grades`.`sub_id`;";
 
-$stmt = Dbh::getInstance()->connect()->prepare($query);
+$stmt = Dbh::getInstance()->connect()->prepare($queryAVG);
 $stmt->execute();
-if($stmt->rowCount()>0) {
-    $result = Dbh::getInstance()->connect()->query($query);
+$result = Dbh::getInstance()->connect()->query($queryAVG);
+$totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
+// to avg
+// echo "<pre>";
+// var_dump($totalQuery);
+// echo "</pre>";
+// die();
 
-    $totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
 
-    $query1 = "SELECT sub_id, AVG(grade) AS grade_first FROM `grades` 
+// first periode grade
+$queryFirstGrade = "SELECT sub_id, AVG(grade) AS grade_first FROM `grades` 
     WHERE created_ad < '2025-05-08' AND user_id=1
     GROUP BY sub_id;";
-}
+$stmt = Dbh::getInstance()->connect()->prepare($queryFirstGrade);
+$stmt->execute();
+$result = Dbh::getInstance()->connect()->query($queryFirstGrade);
 
-// $result =  $conn->query($query1);
-// //$totalQuery1 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// $totalQuery1 = $result->fetchAll(PDO::FETCH_ASSOC);
+$totalQueryFirstGrade = $result->fetchAll(PDO::FETCH_ASSOC);
 
 // // period 2
 // $query2 = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
@@ -36,8 +41,8 @@ if($stmt->rowCount()>0) {
 //$finallArr=array_merge($totalQuery, $totalQuery1, $totalQuery2);
 
 $allArray = [];
-foreach($totalQuery as $item) { $allArray[] = $item; }
-// foreach($totalQuery1 as $item){ $allArray[] = $item; }
+foreach($totalQueryFirstGrade as $item) { $allArray[] = $item; }
+foreach($totalQueryFirstGrade as $item){ $allArray[] = $item; }
 // foreach($totalQuery2 as $item){ $allArray[] = $item; }
 
 // print_r($allArray);
@@ -56,11 +61,11 @@ foreach ($totalQuery as $item) {
     }
 }
 
-// foreach ($totalQuery1 as $item) {
-//     $subId = $item['sub_id'];
+foreach ($totalQueryFirstGrade as $item) {
+    $subId = $item['sub_id'];
 
-//     $subjects[$subId]['first_grade'] = $item['grade_first'];
-// }
+    $subjects[$subId]['first_grade'] = $item['grade_first'];
+}
 
 // foreach ($totalQuery2 as $item) {
 //     $subId = $item['sub_id'];
