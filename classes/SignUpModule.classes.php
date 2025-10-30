@@ -1,10 +1,10 @@
 <?php
-
-class SignUp extends Dbh {
+require_once('../classes/Dbh.classes.php'); 
+class SignUp{
     //'SELECT * FROM `users` WHERE email LIKE "%_s%"' && 'SELECT * FROM `users` WHERE email LIKE "%_t%"'
     public function setRole($email, $role){
         $query_update_user = 'UPDATE `users` SET role = :role WHERE email=:email';
-        $stmt = $this->connect()->prepare($query_update_user);
+        $stmt = Dbh::getInstance()->connect()->prepare($query_update_user);
         $stmt->bindParam(':role', $role);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -23,7 +23,7 @@ class SignUp extends Dbh {
         }
 
         $query_insert = 'INSERT INTO `users` (login,email,pass,role) VALUES (?,?,?,?)';
-        $stmt = $this->connect()->prepare($query_insert);
+        $stmt = Dbh::getInstance()->connect()->prepare($query_insert);
 
         // hash the pwd :)
         $hash_pwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -38,7 +38,7 @@ class SignUp extends Dbh {
 
     public function isUserExists($login, $email){
         $query_select = 'SELECT * FROM `users` WHERE login = ? OR email = ?';
-        $stmt = $this->connect()->prepare($query_select);
+        $stmt = Dbh::getInstance()->connect()->prepare($query_select);
 
         if(!$stmt->execute(array($login, $email))){
             $stmt = null;
@@ -51,6 +51,4 @@ class SignUp extends Dbh {
         else{$isInsetsUser = false;}
         return $isInsetsUser;
     }
-
-
 }
