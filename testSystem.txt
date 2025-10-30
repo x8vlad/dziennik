@@ -63,3 +63,5 @@ Succsess register: checkStudent and checkStudent_s@mi.eu and checkStudent
 Succsess register: checkTeacer and checkTeacer_t@pl.cm and checkTeacer 
 Succsess login: checkTeacer and checkTeacer 
 Succsess login: admin and ADMIN 
+Succsess register: newStudent and newStudent_s@gm.co and newStudent 
+Succsess login: newStudent and newStudent 

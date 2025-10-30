@@ -1,10 +1,11 @@
-<?php session_start()?>
+<?php session_start(); require_once('../classes/Dbh.classes.php'); ?>
 <?php 
-class LogIn extends Dbh {
+class LogIn {
     // select
     public function selectUser($login, $pwd){
         $query_select = 'SELECT login, pass FROM `users` WHERE login = :login';
-        $stmt = $this->connect()->prepare($query_select);
+        // get a object from Dbvh and use connect fn 
+        $stmt = Dbh::getInstance()->connect()->prepare($query_select);
         // $stmt->execute([$login]);
         $stmt->bindValue(":login", $login);
         // file_put_contents("../testSystem.txt", "$login \n", FILE_APPEND);
