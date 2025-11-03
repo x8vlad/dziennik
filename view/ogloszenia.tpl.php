@@ -1,7 +1,7 @@
 <?php
     include_once(__DIR__ . '/../config/config.php');
     include_once(controller('header.php'));
-    include_once(ROOT_PATH  . '/database.php');
+    include_once('../classes/Dbh.classes.php');
     
     //$result = mysqli_query($conn, $stmt
     // $result = $conn->query("SELECT * FROM announcement ORDER BY created_at ASC");

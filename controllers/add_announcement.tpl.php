@@ -1,17 +1,17 @@
 <?php 
     include_once(__DIR__ . '/../config/config.php');
-    include_once(ROOT_PATH  . '/database.php');
+    include_once('../classes/Dbh.classes.php');
 ?>
  
 <?php   
     if(isset($_POST['title']) && isset($_POST['content'])){    
         $query = "INSERT INTO `announcement` (title, content, created_at) VALUES (:title, :content, NOW())";
         //опредиляем prepared statment (чтобы уникать уязвиости кода)
-        $stmt = $conn->prepare($query);
+        $stmt = Dbh::getInstance()->connect()->prepare($query);
         //  привязываем параметры (титл и контект) к значениям :title,:content
         $stmt->bindValue(":title", $_POST['title']);
         $stmt->bindValue(":content", $_POST['content']);
-        // $stmt->execute();
+        $stmt->execute();
         
         if ($stmt->execute()) {
             header('Location: ' . BASE_URL .'view/ogloszenia.tpl.php');
