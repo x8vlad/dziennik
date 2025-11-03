@@ -11,7 +11,6 @@
         //  привязываем параметры (титл и контект) к значениям :title,:content
         $stmt->bindValue(":title", $_POST['title']);
         $stmt->bindValue(":content", $_POST['content']);
-        $stmt->execute();
         
         if ($stmt->execute()) {
             header('Location: ' . BASE_URL .'view/ogloszenia.tpl.php');

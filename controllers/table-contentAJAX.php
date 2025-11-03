@@ -3,7 +3,8 @@
   include_once(__DIR__ . '/../config/config.php');
   include_once('../classes/Dbh.classes.php');
   
-  $result = Dbh::getInstance()->connect()->prepare("SELECT * FROM announcement ORDER BY created_at ASC")->query();
+  $query_select_acnnouncement = "SELECT * FROM announcement ORDER BY created_at ASC";
+  $result = Dbh::getInstance()->connect()->query($query_select_acnnouncement);
 
   while($row = $result->fetch(PDO::FETCH_ASSOC)){
     echo '<tr id="announcement-' . $row['id'] . '">';
