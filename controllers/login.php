@@ -8,8 +8,8 @@ session_start();
 
 if (isset($_POST['submit'])) {
     // grab data
-    $login = Validator::getInstance()->isNotEmptyData($_POST['login']);
-    $password = Validator::getInstance()->isNotEmptyData($_POST['password']);
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
     file_put_contents("../testSystem.txt", "Succsess login: $login and $password \n", FILE_APPEND);
 

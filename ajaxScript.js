@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         $(".arrows").on("click", function (e) {
           e.preventDefault();
-          
+
           let direction = $(e.target).closest("button").data("direction");
           // console.log(direction);
           let currentDay = parseInt(localStorage.getItem("day")) || 1;
@@ -180,16 +180,36 @@ $(document).ready(function () {
     });
   });
 
-  // register and login code firstly change loginName on the main page(as Stdudent or teacher or admin)
+ $("#registerBtn").on("click", function (e) {
+   
+    e.preventDefault();
 
-  // $("#loginName").on("click", function(event){
-  //     console.log("You are student");
-  // });
+      let login = $("#login_input").val();
+      let email = $("#email_input").val();
+      let password = $("#password_input").val();
+      let password_confirm = $("#password_confirm").val();
 
-  // $("#loginBtn").on('click', function(e){
-  //     // e.preventDefault();
-  //     console.log("login");
-  // });
+    if(login == '' || email == '' || password == '' || password_confirm == ''){
+         $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                All fields are empty
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        e.preventDefault();
+        return;
+    }
+    if(password != password_confirm){
+        $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Passwords do not match
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        e.preventDefault();
+        return;
+    }
+  });
 
   // in register form to login
   $("#signInLink").on("click", function (e) {
@@ -198,8 +218,6 @@ $(document).ready(function () {
     $("#headerRegister").hide();
     $("#headerLogin").show();
     $("#loginBlock").show();
-
-    
   });
 
   // in login form to register

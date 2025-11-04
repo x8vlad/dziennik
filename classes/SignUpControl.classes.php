@@ -20,33 +20,33 @@ class SignUpControl {
     public function signUpUser(){
         $signup = new SignUp();
         if($this->isDataFilled() == false){
-            // empty input
-            header("location: ../view/main.tpl.php?error=emptyinput");
-            exit();
+            return "empty input";
+            // header("location: ../view/main.tpl.php?error=emptyinput");
+            // exit();
         }
         if($this->isValidLogin() == false){
-            // invalid login
-            header("location: ../view/main.tpl.php?error=invalidlogin");
-            exit();
+            return "invalid login";
+            // header("location: ../view/main.tpl.php?error=invalidlogin");
+            // exit();
         }
         if($this->isValidEmail() == false){
-            // invalid email
-            header("location: ../view/main.tpl.php?error=invalidemail");
-            exit();
+            return "invalid email";
+            // header("location: ../view/main.tpl.php?error=invalidemail");
+            // exit();
         }
         if($this->isPwdMatch() == false){
-            // Pwd not Match
-            header("location: ../view/main.tpl.php?error=PwdNotMatch");
-            exit();
+            return "PwdNotMatch";
+            // header("location: ../view/main.tpl.php?error=PwdNotMatch");
+            // exit();
         }
 
         if($this->isUserTaken() == true){
-            // usertaken
-            header("location: ../view/main.tpl.php?error=UserTaken");
-            exit();
+            return "usertaken";
+            // header("location: ../view/main.tpl.php?error=UserTaken");
+            // exit();
         }
         $signup->setUser($this->login,$this->email,$this->pwd, $this->role);   
-
+        return "success";
        
     }
 

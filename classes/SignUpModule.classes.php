@@ -12,16 +12,7 @@ class SignUp{
 
 
     public function setUser($login, $email, $pwd, $role){
-        if(strpos($email, '_s')){
-            $role = "student";
-            $this->setRole($email, $role);
-            // $query_update_students = 'UPDATE `users` SET role="student"';
-        }
-        else if(strpos($email, '_t')){
-            $role = "teacher";
-            $this->setRole($email, $role);
-        }
-
+        
         $query_insert = 'INSERT INTO `users` (login,email,pass,role) VALUES (?,?,?,?)';
         $stmt = Dbh::getInstance()->connect()->prepare($query_insert);
 
@@ -30,8 +21,8 @@ class SignUp{
 
         if(!$stmt->execute(array($login, $email, $hash_pwd, $role))){
             $stmt = null;
-            header("Location: ../view/main.tpl.php?error=smthfail");
-            exit();
+            // header("Location: ../view/main.tpl.php?error=smthfail");
+            // exit();
         }
         $stmt = null;
     }
@@ -42,8 +33,8 @@ class SignUp{
 
         if(!$stmt->execute(array($login, $email))){
             $stmt = null;
-            header("Location: ../view/main.tpl.php?error=smthfail");
-            exit();
+            // header("Location: ../view/main.tpl.php?error=smthfail");
+            // exit();
         }
         // если найдено больше нуля юзер то значит он уже есть в бд и не надо добавлять и регестривть
         $isInsetsUser = false;

@@ -68,3 +68,48 @@ Succsess login: newStudent and newStudent
 Succsess login: 1 and ADMIN 
 Succsess login:  and  
 Succsess login:  and  
+Succsess login:  and  
+Succsess login:  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess login:  and  
+Succsess login: 1 and 1 
+Succsess register: Pa and pa_s@gm.com and 123 
+Succsess login: Pa and 123 
+Succsess register: checkit and checkit_t@gm.co and 12 
+Succsess login: checkit and 12 
+Succsess login: checkit and 12 
+Succsess register: sd and sdsd@gm.com and 123 
+Succsess register: sdsd and sdsdsd@gm.com and sdsd 
+Succsess register:  and  and  
+Succsess register: sadsd and sdsd@gm.com and 12 
+Succsess register: fggdf and fgfg@gm.co and 123 
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register: testGi and testGi_s@gm.co and 123 
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register: dfdf and dfdf@gm.cm and 123 
+Succsess register: gh and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess login:  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess login:  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register:  and  and  
+Succsess register: fgfg and dfdf@gm.co and `1 
+Succsess register: qweqwe and qwe@fm.co and `1 
