@@ -182,12 +182,14 @@ $(document).ready(function () {
 
  $("#registerBtn").on("click", function (e) {
    
-    e.preventDefault();
+    // e.preventDefault();
 
       let login = $("#login_input").val();
       let email = $("#email_input").val();
       let password = $("#password_input").val();
       let password_confirm = $("#password_confirm").val();
+      
+    //   console.log(login);
 
     if(login == '' || email == '' || password == '' || password_confirm == ''){
          $("#liveAlertPlaceholder").html(`
@@ -209,6 +211,25 @@ $(document).ready(function () {
         e.preventDefault();
         return;
     }
+
+    $.ajax({
+        method: "POST",
+        url: "../controllers/register.php",
+        data: {
+            login: login,
+            email: email,
+            password: password,
+            password_confirm: password_confirm
+        },
+        success: function(e){
+            $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Successful register
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        }
+    })
   });
 
   // in register form to login
