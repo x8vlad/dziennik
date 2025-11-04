@@ -1,6 +1,6 @@
 <?php 
 class Dbh {
-    private static $singltoneDB;
+    private static $InstanceDB;
     private $connection;
     
     private function __construct()
@@ -15,8 +15,8 @@ class Dbh {
 
     // для создания одного экземпляра класса
     public static function getInstance(){
-        if(self::$singltoneDB == null) {self::$singltoneDB = new Dbh();}
-        return self::$singltoneDB;
+        if(self::$InstanceDB == null) {self::$InstanceDB = new Dbh();}
+        return self::$InstanceDB;
     }
 
     public function connect(){return $this->connection;}
