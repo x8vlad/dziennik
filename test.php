@@ -22,8 +22,13 @@
     ?>
 
     <form action="" method="post">
-        <input type="text" name="login" placeholder="Login" required>
-        <input type="password" name="pwd" placeholder="Password" required>
+        <!-- <input type="text" name="login" placeholder="Login" required>
+        <input type="password" name="pwd" placeholder="Password" required> -->
+                <select name="userOption" class="form-select form-select-sm shadow-sm mb-3 w-75" aria-label="Message filter">
+                    <option value="1">All users</option>
+                    <option value="2">Students</option>
+                    <option value="3">Teachers</option>
+                </select>
         <button type="submit" name="btn">Send</button>
     </form>
 
@@ -40,6 +45,9 @@
                 die();
             }
         }
+
+        echo $_POST['userOption'];
+        // echo value nice!
 
         // Функция для выбора пользователя
         function selectUser($login, $pwd) {
@@ -66,7 +74,7 @@
         // Вызов функции с переданными данными
         $login = $_POST['login'];
         $pwd = $_POST['pwd'];
-        selectUser($login, $pwd);
+        // selectUser($login, $pwd);
     }
   ?>
 
