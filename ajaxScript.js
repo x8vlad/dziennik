@@ -75,6 +75,24 @@ $(document).ready(function () {
   });
   // })
 
+    //for message:
+    $("select[name='userOption']").on("change", function(e){
+        let userOption = $(this).val();
+        // console.log(selectedVal);
+        e.preventDefault();
+        $.ajax({
+          
+          method: "POST",
+          url: BASE_URL + 'controllers/table-usersAJAX.php',
+          data: {
+            userOption: userOption
+          },
+          success: function(response){
+            $("#table-body").html(response);
+          }
+        })
+    })
+
   // let mainBlock = $("#mainBlock");
 
   // for DELEGATE events

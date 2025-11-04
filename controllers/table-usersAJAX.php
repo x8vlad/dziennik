@@ -1,14 +1,10 @@
 <?php
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
-
-if (isset($_POST['userOption'])) {
+    $select_option = "*";
+    if(isset($_POST['userOption']) && !empty($_POST['userOption'])){
     $select_option = $_POST['userOption'];
-}else{
-    $select_option = '*';
-}
-
-    
+    } 
     //SELECT * FROM `users` WHERE role = ..
     if ($select_option == "*") {
         $query = "SELECT id,login FROM `users` ORDER BY id ASC";
