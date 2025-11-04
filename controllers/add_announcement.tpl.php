@@ -7,7 +7,7 @@
 
 <?php   
     // $validator = new Validator();
-    if(isset($_POST['title']) && isset($_POST['content']) && Validator::getInstance()->isEmptyData($_POST['title']) && Validator::getInstance()->isEmptyData($_POST['content'])){    
+    if(isset($_POST['title']) && isset($_POST['content']) && Validator::getInstance()->isNotEmptyData($_POST['title']) && Validator::getInstance()->isNotEmptyData($_POST['content'])){    
         $query = "INSERT INTO `announcement` (title, content, created_at) VALUES (:title, :content, NOW())";
         //опредиляем prepared statment (чтобы уникать уязвиости кода)
         $stmt = Dbh::getInstance()->connect()->prepare($query);

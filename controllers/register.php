@@ -8,10 +8,10 @@ session_start();
 
 if (isset($_POST['submit'])) {
     // grab data
-    $login = Validator::getInstance()->isEmptyData($_POST['login']);
-    $email = Validator::getInstance()->isEmptyData($_POST['email']);
-    $password = Validator::getInstance()->isEmptyData($_POST['password']);
-    $confirm_password = Validator::getInstance()->isEmptyData($_POST['password_confirm']);
+    $login = Validator::getInstance()->isNotEmptyData($_POST['login']);
+    $email = Validator::getInstance()->isNotEmptyData($_POST['email']);
+    $password = Validator::getInstance()->isNotEmptyData($_POST['password']);
+    $confirm_password = Validator::getInstance()->isNotEmptyData($_POST['password_confirm']);
 
     // Instantiate SignUpControl
     $signup = new SignUpControl($login, $email, $password, $role ,$confirm_password);

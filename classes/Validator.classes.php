@@ -7,11 +7,12 @@ class Validator{
         return self::$instanceValidator;
     }
 
-    public function isEmptyData($data){
+    public function isNotEmptyData($data){
         if(empty($data)){
             // echo "Empty data";
-            return true;
-        }else{return false;}
+            return false;
+            //ajax
+        }else{return true;}
     }
 
 
