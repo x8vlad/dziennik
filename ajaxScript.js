@@ -180,6 +180,14 @@ $(document).ready(function () {
     });
   });
 
+//   alert fn timeout
+
+  function alertTimeout(){
+    setTimeout(function(){
+            $('.alert').alert('close');
+        }, 2000) 
+  }
+
  $("#registerBtn").on("click", function (e) {
    
     // e.preventDefault();
@@ -198,6 +206,9 @@ $(document).ready(function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
+
+        alertTimeout()
+
         e.preventDefault();
         return;
     }
@@ -208,6 +219,7 @@ $(document).ready(function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
+        alertTimeout()
         e.preventDefault();
         return;
     }
@@ -228,6 +240,7 @@ $(document).ready(function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
+        alertTimeout()
         }
     })
   });
