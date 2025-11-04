@@ -1,10 +1,10 @@
 <?php
 class Validator{
-    private $instanceValidator;
-
-    public function getInstance(){
+    private static $instanceValidator;
+    // singltone 
+    public static function getInstance(){
         if(self::$instanceValidator == null) {self::$instanceValidator = new Validator();}
-        return self::$instanceValidator = new Validator();
+        return self::$instanceValidator;
     }
 
     public function isEmptyData($data){

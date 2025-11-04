@@ -4,10 +4,10 @@
     include_once('../classes/Validator.classes.php');
     
 ?>
- 
+
 <?php   
-    $validator = new Validator();
-    if(isset($_POST['title']) && isset($_POST['content']) && $validator->isEmptyData($_POST['title']) && $validator->isEmptyData($_POST['content'])){    
+    // $validator = new Validator();
+    if(isset($_POST['title']) && isset($_POST['content']) && Validator::getInstance()->isEmptyData($_POST['title']) && $validator->isEmptyData($_POST['content'])){    
         $query = "INSERT INTO `announcement` (title, content, created_at) VALUES (:title, :content, NOW())";
         //опредиляем prepared statment (чтобы уникать уязвиости кода)
         $stmt = Dbh::getInstance()->connect()->prepare($query);
