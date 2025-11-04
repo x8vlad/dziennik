@@ -7,8 +7,9 @@ session_start();
 
 if (isset($_POST['submit'])) {
     // grab data
-    $login = $_POST['login'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $login = Validator::getInstance()->isEmptyData($_POST['login']);
+    $password = Validator::getInstance()->isEmptyData($_POST['password']);
+
     file_put_contents("../testSystem.txt", "Succsess login: $login and $password \n", FILE_APPEND);
 
     // Instantiate LogInControl
