@@ -203,7 +203,7 @@ $(document).ready(function () {
   function alertTimeout(){
     setTimeout(function(){
             $('.alert').alert('close');
-        }, 2000) 
+        }, 5000) 
   }
 
  $("#registerBtn").on("click", function (e) {
@@ -238,8 +238,7 @@ $(document).ready(function () {
             </div>
         `);
         alertTimeout()
-        e.preventDefault();
-        return;
+        
     }
 
     $.ajax({
@@ -251,7 +250,7 @@ $(document).ready(function () {
             password: password,
             password_confirm: password_confirm
         },
-        success: function(e){
+        success: function(){
             $("#liveAlertPlaceholder").html(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Successful register
@@ -259,6 +258,8 @@ $(document).ready(function () {
             </div>
         `);
         alertTimeout()
+        // e.preventDefault();
+        // return;
         }
     })
   });

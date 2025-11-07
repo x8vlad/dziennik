@@ -24,11 +24,12 @@ if (isset($_POST['submit'])) {
 
     // Instantiate SignUpControl
     $signup = new SignUpControl($login, $email, $password, $role, $confirm_password);
+    sleep(2);
     $result = $signup->signUpUser();
 
     // лог для теста
     file_put_contents("../testSystem.txt", "Succsess register: $login and $email and $password \n", FILE_APPEND);
     
     header('Location: ../view/main.tpl.php');
-    exit();
+    return "success";
 }
