@@ -235,8 +235,8 @@ $(document).ready(function () {
   }
 
   $("#registerBtn").on("click", function (e) {
-    // e.preventDefault();
-
+    e.preventDefault();
+  console.log("1 take val");
     let login = $("#login_input").val();
     let email = $("#email_input").val();
     let password = $("#password_input").val();
@@ -258,11 +258,12 @@ $(document).ready(function () {
         `);
 
       alertTimeout();
-
-      e.preventDefault();
+        console.log("2 is empty fields");
+      // e.preventDefault();
       return;
     }
     if (password != password_confirm) {
+      console.log("3 if pwd not much");
       $("#liveAlertPlaceholder").html(`
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Passwords do not match
@@ -270,28 +271,54 @@ $(document).ready(function () {
             </div>
         `);
       alertTimeout();
+      return;
     }
-
+console.log("4.Send request...");
     $.ajax({
       method: "POST",
-      url: "../controllers/register.php",
+      url: BASE_URL + "controllers/register.php",
       data: {
         login: login,
         email: email,
         password: password,
         password_confirm: password_confirm,
       },
-      success: function () {
-        $("#liveAlertPlaceholder").html(`
+      dataType: "json",
+      before: loading,
+      success: function (response) {
+        console.log(response); 
+        if(response.status === "success"){
+          $("#liveAlertPlaceholder").html(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Successful register
+                Successful regestarion
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
         alertTimeout();
+          $("#login_input, #email_input, #password_input, #password_confirm").val("");
+        } else{
+           $("#liveAlertPlaceholder").html(`
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        ${response.msg}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `);
+                alertTimeout();
+        }
+        
         // e.preventDefault();
         // return;
       },
+       error: function(xhr, status, error) {
+            console.log("AJAX Error:", error);
+            $("#liveAlertPlaceholder").html(`
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Request error: ${error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `);
+            alertTimeout();
+          }
     });
   });
 

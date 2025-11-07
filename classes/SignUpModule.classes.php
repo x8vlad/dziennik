@@ -14,16 +14,25 @@ class SignUp{
     public function setUser($login, $email, $pwd, $role){
         
         $query_insert = 'INSERT INTO `users` (login,email,pass,role) VALUES (?,?,?,?)';
+
+        
         $stmt = Dbh::getInstance()->connect()->prepare($query_insert);
 
         // hash the pwd :)
         $hash_pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-        if(!$stmt->execute(array($login, $email, $hash_pwd, $role))){
-            $stmt = null;
-            // header("Location: ../view/main.tpl.php?error=smthfail");
-            // exit();
+        try{
+            $stmt->execute(array($login, $email, $hash_pwd, $role));
+            file_put_contents("../testSystem.txt", "User inserted successfully: $login \n", FILE_APPEND);
+        }catch (PDOException $error){
+            file_put_contents("../testSystem.txt", "DB INSERT FAILED for $login: " . $error->getMessage() . "\n", FILE_APPEND);
         }
+
+        // if(!$stmt->execute(array($login, $email, $hash_pwd, $role))){
+        //     $stmt = null;
+        //     // header("Location: ../view/main.tpl.php?error=smthfail");
+        //     // exit();
+        // }
         $stmt = null;
     }
 

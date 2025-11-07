@@ -132,3 +132,8 @@ Succsess register: log and log@v.co and 12
 Succsess register: lko and 1lp@gm.c and 12 
 Succsess register: newUs and fg@m.c and 123 
 Succsess register: sdf and df@gmc.o and 12 
+User inserted successfully: login 
+User inserted successfully: pob 
+User inserted successfully: chekcUU 
+User inserted successfully: checGoa 
+User inserted successfully: adminooo 

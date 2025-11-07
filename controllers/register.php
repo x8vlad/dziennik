@@ -5,8 +5,7 @@ include '../classes/SignUpControl.classes.php';
 include '../classes/Validator.classes.php';
 
 session_start();
-
-if (isset($_POST['submit'])) {
+    header('Content-Type: application/json');
     // grab data
     $login = $_POST['login'];
     $email = $_POST['email'];
@@ -22,14 +21,41 @@ if (isset($_POST['submit'])) {
         $role = "guest";
     }
 
+    if (
+        Validator::getInstance()->isNotEmptyData($login) && // other metohd for LOGIN
+        Validator::getInstance()->isNotEmptyData($email) && // other metohd for EMAIL
+        Validator::getInstance()->isNotEmptyData($password) && //..
+        Validator::getInstance()->isNotEmptyData($confirm_password)
+    ) {
+
+        $signup = new SignUpControl($login, $email, $password, $role, $confirm_password);
+        sleep(2);
+        $result = $signup->signUpUser();
+        if($result == "success"){
+           
+            echo json_encode(["status" => "success"]);
+        }else {
+            echo json_encode(
+                [
+                    "status" => "error",
+                    "msg" => "problem with reg:" . $result
+                ]
+        );
+    } 
+    } else {
+            echo json_encode(
+                [
+                    "status" => "error",
+                    "msg" => "Some field's empty"
+                ]
+        );
+             exit();
     // Instantiate SignUpControl
-    $signup = new SignUpControl($login, $email, $password, $role, $confirm_password);
-    sleep(2);
-    $result = $signup->signUpUser();
 
     // лог для теста
-    file_put_contents("../testSystem.txt", "Succsess register: $login and $email and $password \n", FILE_APPEND);
-    
-    header('Location: ../view/main.tpl.php');
-    return "success";
-}
+    // file_put_contents("../testSystem.txt", "Succsess register: $login and $email and $password \n", FILE_APPEND);
+
+    // 
+    // 
+    }
+
