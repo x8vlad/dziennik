@@ -5,18 +5,31 @@ include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
 include_once('../classes/Validator.classes.php');
 
-$id = $_POST['id'];
+$id = $_POST['id'] ?? null;
 $title = $_POST['title'] ?? null;
 $content = $_POST['content'] ?? null;
 
-$queryEdit = "UPDATE `announcement` SET title = :title, content = :content WHERE id= :id";
-// готовим запрос
+header('Content-Type: application/json');
 
-$stmt = Dbh::getInstance()->connect()->prepare($queryEdit);
+if (Validator::getInstance()->isNotEmptyData($title) && Validator::getInstance()->isNotEmptyData($content)) {
 
-$stmt->bindValue(":id", $id);
-$stmt->bindValue(":title",$title);
-$stmt->bindValue(":content", $content);
+    $queryEdit = "UPDATE `announcement` SET title = :title, content = :content WHERE id= :id";
+    // готовим запрос
 
-$stmt->execute(array(":title"=>$title, ":content"=>$content, ":id"=>$id));
-file_put_contents("../log.txt", "$id, $title, $content\n", FILE_APPEND);
+    $stmt = Dbh::getInstance()->connect()->prepare($queryEdit);
+
+    $stmt->bindValue(":id", $id);
+    $stmt->bindValue(":title", $title);
+    $stmt->bindValue(":content", $content);
+
+    $stmt->execute(array(":title" => $title, ":content" => $content, ":id" => $id));
+    file_put_contents("../log.txt", "$id, $title, $content\n", FILE_APPEND);
+
+    echo json_encode(["status" => "success"]);
+}else{
+    echo json_encode(
+        [
+            "status" => "error",
+            "msg" => "Some field's empty"
+        ]);
+}

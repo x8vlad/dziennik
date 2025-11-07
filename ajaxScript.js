@@ -75,23 +75,22 @@ $(document).ready(function () {
   });
   // })
 
-    //for message:
-    $("select[name='userOption']").on("change", function(e){
-        let userOption = $(this).val();
-        // console.log(selectedVal);
-        e.preventDefault();
-        $.ajax({
-          
-          method: "POST",
-          url: BASE_URL + 'controllers/table-usersAJAX.php',
-          data: {
-            userOption: userOption
-          },
-          success: function(response){
-            $("#table-body").html(response);
-          }
-        })
-    })
+  //for message:
+  $("select[name='userOption']").on("change", function (e) {
+    let userOption = $(this).val();
+    // console.log(selectedVal);
+    e.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: BASE_URL + "controllers/table-usersAJAX.php",
+      data: {
+        userOption: userOption,
+      },
+      success: function (response) {
+        $("#table-body").html(response);
+      },
+    });
+  });
 
   // let mainBlock = $("#mainBlock");
 
@@ -132,11 +131,25 @@ $(document).ready(function () {
       url: BASE_URL + "controllers/edit_announcement.php",
       method: "POST",
       data: $("#FormForEdit").serialize(),
-      beforeSend: loading,
+      dataType: "json",
+      // beforeSend: loading,
       success: function (response) {
-        console.log($("#FormForEdit").serialize());
-        // добавялем те эдитированные данные
-        // event.preventDefault();
+        //console.log(response);
+        if (response.status === 'error') {
+          //  alert("error");
+          // $("#editModal").modal("hide");
+
+              $("#editModal .modal-body").prepend(`
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          ${response.msg}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `);
+
+
+          alertTimeout()
+          return;
+        }
         $.ajax({
           url: BASE_URL + "controllers/table-contentAJAX.php",
           method: "POST",
@@ -145,11 +158,26 @@ $(document).ready(function () {
             // console.log(response);
             $("#table-body").html(response);
             $("#editModal").modal("hide");
+            // $("div.text-center").hide();
           },
+          error: function(){
+            alert("error");
+          }
         });
         // console.log("так пока без ошибок :) ");
-        $("div.text-center").hide();
+        
       },
+      error: function(xhr, status, error) {
+            $("#liveAlertPlaceholder").html(`
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Request error: ${error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `);
+      }
+      // console.log($("#FormForEdit").serialize());
+      // добавялем те эдитированные данные
+      // event.preventDefault();
     });
   });
 
@@ -198,70 +226,73 @@ $(document).ready(function () {
     });
   });
 
-//   alert fn timeout
+  //   alert fn timeout
 
-  function alertTimeout(){
-    setTimeout(function(){
-            $('.alert').alert('close');
-        }, 5000) 
+  function alertTimeout() {
+    setTimeout(function () {
+      $(".alert").alert("close");
+    }, 5000);
   }
 
- $("#registerBtn").on("click", function (e) {
-   
+  $("#registerBtn").on("click", function (e) {
     // e.preventDefault();
 
-      let login = $("#login_input").val();
-      let email = $("#email_input").val();
-      let password = $("#password_input").val();
-      let password_confirm = $("#password_confirm").val();
-      
+    let login = $("#login_input").val();
+    let email = $("#email_input").val();
+    let password = $("#password_input").val();
+    let password_confirm = $("#password_confirm").val();
+
     //   console.log(login);
 
-    if(login == '' || email == '' || password == '' || password_confirm == ''){
-         $("#liveAlertPlaceholder").html(`
+    if (
+      login == "" ||
+      email == "" ||
+      password == "" ||
+      password_confirm == ""
+    ) {
+      $("#liveAlertPlaceholder").html(`
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 All fields are empty
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
 
-        alertTimeout()
+      alertTimeout();
 
-        e.preventDefault();
-        return;
+      e.preventDefault();
+      return;
     }
-    if(password != password_confirm){
-        $("#liveAlertPlaceholder").html(`
+    if (password != password_confirm) {
+      $("#liveAlertPlaceholder").html(`
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Passwords do not match
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-        alertTimeout()
-        
+      alertTimeout();
     }
 
     $.ajax({
-        method: "POST",
-        url: "../controllers/register.php",
-        data: {
-            login: login,
-            email: email,
-            password: password,
-            password_confirm: password_confirm
-        },
-        success: function(){
-            $("#liveAlertPlaceholder").html(`
+      method: "POST",
+      url: "../controllers/register.php",
+      data: {
+        login: login,
+        email: email,
+        password: password,
+        password_confirm: password_confirm,
+      },
+      success: function () {
+        $("#liveAlertPlaceholder").html(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Successful register
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-        alertTimeout()
+        alertTimeout();
         // e.preventDefault();
         // return;
-        }
-    })
+      },
+    });
   });
 
   // in register form to login

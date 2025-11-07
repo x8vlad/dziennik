@@ -8,7 +8,7 @@ class Validator{
     }
 
     public function isNotEmptyData($data){
-        if(empty($data)){
+        if(empty(trim($data))){
             // echo "Empty data";
             return false;
             //ajax

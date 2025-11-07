@@ -130,3 +130,5 @@ Succsess register: dfdf and dfd@gm.po and 89
 Succsess register: bnmbm and bnm@gm.cvo and 12 
 Succsess register: log and log@v.co and 12 
 Succsess register: lko and 1lp@gm.c and 12 
+Succsess register: newUs and fg@m.c and 123 
+Succsess register: sdf and df@gmc.o and 12 
