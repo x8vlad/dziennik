@@ -15,8 +15,8 @@ $queryEdit = "UPDATE `announcement` SET title = :title, content = :content WHERE
 $stmt = Dbh::getInstance()->connect()->prepare($queryEdit);
 
 $stmt->bindValue(":id", $id);
-$stmt->bindValue(":title", Validator::getInstance()->isNotEmpty($title));
-$stmt->bindValue(":content", Validator::getInstance()->isNotEmpty($content));
+$stmt->bindValue(":title",$title);
+$stmt->bindValue(":content", $content);
 
 $stmt->execute(array(":title"=>$title, ":content"=>$content, ":id"=>$id));
 file_put_contents("../log.txt", "$id, $title, $content\n", FILE_APPEND);
