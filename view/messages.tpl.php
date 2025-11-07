@@ -19,6 +19,7 @@ include_once(controller('header.php'));
                     <option value="*">All users</option>
                     <option value="student">Students</option>
                     <option value="teacher">Teachers</option>
+                    <option value="guest">Guest</option>
                 </select>
                 <table class="table" id="tableBlock">
                   <tr>
