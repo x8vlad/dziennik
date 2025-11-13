@@ -94,6 +94,49 @@ $(document).ready(function () {
 
   // let mainBlock = $("#mainBlock");
 
+  $("#attempBtn").on("click", function(e){
+      e.preventDefault(); 
+      console.log("u clikced on attempt btn");
+
+      let title = $("#title").val();
+      let content = $("#content").val();
+
+      // console.log(title + " " + content);
+
+      $.ajax({
+        method: "POST",
+        url: BASE_URL + "controllers/add_announcement.php",
+        dataType: "json",
+        data: {
+          title: title,
+          content: content,
+        },
+        success: function(response){
+          if(response.status === "success"){
+            $("#table-body").html(response);
+          }else{
+
+             $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                ${response.msg}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+          }
+          
+        },error: 
+            function(xhr, status, error) {
+            $("#liveAlertPlaceholder").html(`
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Request error: ${error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <k                                                 
+            `);
+      
+        }
+      });
+  });
+
   // for DELEGATE events
   $(document).on("click", ".editBtn", function () {
     console.log("click on editBtn");
@@ -231,7 +274,7 @@ $(document).ready(function () {
   function alertTimeout() {
     setTimeout(function () {
       $(".alert").alert("close");
-    }, 5000);
+    }, 3000);
   }
 
   $("#registerBtn").on("click", function (e) {

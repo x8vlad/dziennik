@@ -137,3 +137,8 @@ User inserted successfully: pob
 User inserted successfully: chekcUU 
 User inserted successfully: checGoa 
 User inserted successfully: adminooo 
+User inserted successfully: Alice 
+Succsess login:  and  
+User inserted successfully: golo 
+User inserted successfully: Alice23 
+Succsess login: alice23 and 123 
