@@ -32,7 +32,7 @@
         
 
           
-        <a href="<?= BASE_URL ?>controllers/add_announcement.tpl.php" class="btn btn-dark">Add announcement</a>
+        <a href="<?= BASE_URL ?>view/add_announcement.tpl.php" class="btn btn-dark">Add announcement</a>
 
         <!-- onclick="return false;" -->
         <a href="<?= BASE_URL ?>controllers/remove_announcement.php" class="btn btn-danger"  id="remover_btn">Remove all announcements</a>

@@ -53,3 +53,4 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
     exit;
     }
 }
+include_once(view('add_announcement.tpl.php'));
