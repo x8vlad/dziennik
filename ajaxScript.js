@@ -94,49 +94,79 @@ $(document).ready(function () {
 
   // let mainBlock = $("#mainBlock");
 
- $("#attempBtn").on("click", function(e){
-      e.preventDefault(); 
-      console.log("u clikced on attempt btn");
+  $("#attempBtn").on("click", function (e) {
+    e.preventDefault();
+    console.log("u clikced on attempt btn");
 
-      let title = $("#title").val();
-      let content = $("#content").val();
+    let title = $("#title").val();
+    let content = $("#content").val();
 
-      // console.log(title + " " + content);
+    // console.log(title + " " + content);
 
-      $.ajax({
-        method: "POST",
-        url: BASE_URL + "controllers/add_announcement.php",
-        dataType: "json",
-        data: {
-          title: title,
-          content: content,
-        },
-        success: function(response){
-          if(response.status === "success"){
-            $("#table-body").html(response);
+    $.ajax({
+      method: "POST",
+      url: BASE_URL + "controllers/add_announcement.php",
+      dataType: "json",
+      data: {
+        title: title,
+        content: content,
+      },
+      success: function (response) {
+        if (response.status === "success") {
+          sessionStorage.setItem("alertMsg", "Added annoucement");
+          sessionStorage.setItem("alertType", "success");
+
+          console.log("Saved msg:", sessionStorage.getItem("alertMsg"));
+          console.log("Saved type:", sessionStorage.getItem("alertType"));
+
+          $("#table-body").html(response);
+
+          setTimeout(function () {
             window.location.href = BASE_URL + "view/ogloszenia.tpl.php";
-                                                // add_announcement.tpl.php
-          }else{
-             $("#liveAlertPlaceholder").html(`
+          }, 2000);
+
+          alertTimeout(); // add_announcement.tpl.php
+        } else {
+          $("#liveAlertPlaceholder").html(`
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 Added to another announcement
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
+          alertTimeout();
         }
-        
-        },error: 
-            function(xhr, status, error) {
-            $("#liveAlertPlaceholder").html(`
+      },
+      error: function (xhr, status, error) {
+        $("#liveAlertPlaceholder").html(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Request error: ${error}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <div>                                                 
             `);
-      
-        }
-      });
+        alertTimeout();
+      },
+    });
   });
+
+  // looking as wich page is now
+  if (window.location.pathname.includes("ogloszenia.tpl.php")) {
+    const msg = sessionStorage.getItem("alertMsg");
+    const type = sessionStorage.getItem("alertType");
+
+    console.log("Saved msg:", msg);
+    console.log("Saved type:", type);
+
+    if (msg && type) {
+      $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${msg}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+      sessionStorage.removeItem("alertMsg");
+      sessionStorage.removeItem("alertType");
+    }
+  }
 
   // for DELEGATE events
   $(document).on("click", ".editBtn", function () {
@@ -179,19 +209,18 @@ $(document).ready(function () {
       // beforeSend: loading,
       success: function (response) {
         //console.log(response);
-        if (response.status === 'error') {
+        if (response.status === "error") {
           //  alert("error");
           // $("#editModal").modal("hide");
 
-              $("#editModal .modal-body").prepend(`
+          $("#editModal .modal-body").prepend(`
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
           ${response.msg}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     `);
 
-
-          alertTimeout()
+          alertTimeout();
           return;
         }
         $.ajax({
@@ -204,21 +233,20 @@ $(document).ready(function () {
             $("#editModal").modal("hide");
             // $("div.text-center").hide();
           },
-          error: function(){
+          error: function () {
             alert("error");
-          }
+          },
         });
         // console.log("так пока без ошибок :) ");
-        
       },
-      error: function(xhr, status, error) {
-            $("#liveAlertPlaceholder").html(`
+      error: function (xhr, status, error) {
+        $("#liveAlertPlaceholder").html(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Request error: ${error}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `);
-      }
+      },
       // console.log($("#FormForEdit").serialize());
       // добавялем те эдитированные данные
       // event.preventDefault();
@@ -280,7 +308,7 @@ $(document).ready(function () {
 
   $("#registerBtn").on("click", function (e) {
     e.preventDefault();
-  console.log("1 take val");
+    console.log("1 take val");
     let login = $("#login_input").val();
     let email = $("#email_input").val();
     let password = $("#password_input").val();
@@ -302,7 +330,7 @@ $(document).ready(function () {
         `);
 
       alertTimeout();
-        console.log("2 is empty fields");
+      console.log("2 is empty fields");
       // e.preventDefault();
       return;
     }
@@ -317,7 +345,7 @@ $(document).ready(function () {
       alertTimeout();
       return;
     }
-console.log("4.Send request...");
+    console.log("4.Send request...");
     $.ajax({
       method: "POST",
       url: BASE_URL + "controllers/register.php",
@@ -330,39 +358,41 @@ console.log("4.Send request...");
       dataType: "json",
       before: loading,
       success: function (response) {
-        console.log(response); 
-        if(response.status === "success"){
+        console.log(response);
+        if (response.status === "success") {
           $("#liveAlertPlaceholder").html(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Successful regestarion
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-        alertTimeout();
-          $("#login_input, #email_input, #password_input, #password_confirm").val("");
-        } else{
-           $("#liveAlertPlaceholder").html(`
+          alertTimeout();
+          $(
+            "#login_input, #email_input, #password_input, #password_confirm"
+          ).val("");
+        } else {
+          $("#liveAlertPlaceholder").html(`
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         ${response.msg}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 `);
-                alertTimeout();
+          alertTimeout();
         }
-        
+
         // e.preventDefault();
         // return;
       },
-       error: function(xhr, status, error) {
-            console.log("AJAX Error:", error);
-            $("#liveAlertPlaceholder").html(`
+      error: function (xhr, status, error) {
+        console.log("AJAX Error:", error);
+        $("#liveAlertPlaceholder").html(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Request error: ${error}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `);
-            alertTimeout();
-          }
+        alertTimeout();
+      },
     });
   });
 

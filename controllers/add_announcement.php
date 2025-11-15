@@ -8,7 +8,6 @@ include_once('../classes/Validator.classes.php');
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
-// sleep(2);
 header('Content-Type: application/json');
 // $validator = new Validator();
 if (isset($_POST['title']) && isset($_POST['content'])) {
