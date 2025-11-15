@@ -165,6 +165,7 @@ $(document).ready(function () {
         `);
       sessionStorage.removeItem("alertMsg");
       sessionStorage.removeItem("alertType");
+      alertTimeout();
     }
   }
 

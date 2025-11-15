@@ -12,6 +12,7 @@
       <div class="col-lg-8 px-0">
         <!-- btn add Announcement -->
 
+         <div id="liveAlertPlaceholder"></div>
 
         <hr class="col-1 my-4">
         
