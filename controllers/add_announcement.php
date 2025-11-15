@@ -8,7 +8,7 @@ include_once('../classes/Validator.classes.php');
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
-
+// sleep(2);
 header('Content-Type: application/json');
 // $validator = new Validator();
 if (isset($_POST['title']) && isset($_POST['content'])) {
@@ -27,6 +27,7 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
                     "msg" => "Announcement added"
                     ]
             );
+            // header("Location: ../view/add_anouncement.tpl.php");
             exit();
         }else{
              echo json_encode(
@@ -35,6 +36,7 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
                     "msg" => "DB error"
                     ]
             );
+            // header("Location: ../view/add_anouncement.tpl.php");
             exit();
         }
     }else{
@@ -45,11 +47,13 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
                     "msg" => "Some field's empty"
                 ]
         );
+        // header("Location: ../view/add_anouncement.tpl.php");
         exit();
         // echo "Some filed's empty";
     }
 }else{
     echo json_encode(["status" => "error", "msg" => "No POST data"]);
+    // header("Location: ../view/add_anouncement.tpl.php");
     exit;
     }
 }

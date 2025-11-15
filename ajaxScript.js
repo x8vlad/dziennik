@@ -94,7 +94,7 @@ $(document).ready(function () {
 
   // let mainBlock = $("#mainBlock");
 
-  $("#attempBtn").on("click", function(e){
+ $("#attempBtn").on("click", function(e){
       e.preventDefault(); 
       console.log("u clikced on attempt btn");
 
@@ -114,23 +114,24 @@ $(document).ready(function () {
         success: function(response){
           if(response.status === "success"){
             $("#table-body").html(response);
+            window.location.href = BASE_URL + "view/ogloszenia.tpl.php";
+                                                // add_announcement.tpl.php
           }else{
-
              $("#liveAlertPlaceholder").html(`
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                ${response.msg}
+                Added to another announcement
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-          }
-          
+        }
+        
         },error: 
             function(xhr, status, error) {
             $("#liveAlertPlaceholder").html(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Request error: ${error}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <k                                                 
+                <div>                                                 
             `);
       
         }
