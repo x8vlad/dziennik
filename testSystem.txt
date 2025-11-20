@@ -142,3 +142,4 @@ Succsess login:  and
 User inserted successfully: golo 
 User inserted successfully: Alice23 
 Succsess login: alice23 and 123 
+User inserted successfully: newUs 

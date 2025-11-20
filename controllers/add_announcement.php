@@ -26,7 +26,6 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
                     "msg" => "Announcement added"
                     ]
             );
-            // header("Location: ../view/add_anouncement.tpl.php");
             exit();
         }else{
              echo json_encode(
