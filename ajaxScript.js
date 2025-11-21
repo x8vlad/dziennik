@@ -397,6 +397,73 @@ $(document).ready(function () {
     });
   });
 
+  $("#loginBtn").on("click", function (e) {
+    e.preventDefault();
+    console.log("1 step grab data");
+    let loginSignIn = $("#exampleInputEmail1").val();
+    let pwdSignIn = $("#exampleInputPassword1").val();
+
+
+    if (loginSignIn == "" || pwdSignIn == "") {
+      $("#liveAlertPlaceholder").html(`
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  All fields are empty
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          `);
+      console.log("2 data are empty");
+      alertTimeout();
+      return;
+    }
+    console.log("3  grabed data: " + loginSignIn + " " + pwdSignIn + " and go to ajax");
+    $.ajax({
+      method: "POST",
+      url: BASE_URL + "controllers/login.php",
+      data: {
+        // !!!!!
+        login: loginSignIn,
+        password: pwdSignIn,
+      },
+      dataType: "json",
+      before: loading,
+      success: function (response) {
+        if (response.status === "success") {
+          $("#liveAlertPlaceholder").html(`
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                ${response.msg}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+          alertTimeout();
+          $(
+            "#login_input, #email_input, #password_input, #password_confirm"
+          ).val("");
+        } else {
+          $("#liveAlertPlaceholder").html(`
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        ${response.msg}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `);
+          alertTimeout();
+        }
+
+        // e.preventDefault();
+        // return;
+      },
+      error: function (xhr, status, error) {
+        console.log("AJAX Error:", error);
+        $("#liveAlertPlaceholder").html(`
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Request error: ${error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `);
+        alertTimeout();
+      },
+    });
+  });
+
   // in register form to login
   $("#signInLink").on("click", function (e) {
     // console.log("all ok");
