@@ -1,2 +1,7 @@
 RewriteEngine On
-RewriteRule (.*) view/$1
+#RewriteRule ^(.*)$ view/$1
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(.*)$ view/$1 [L]

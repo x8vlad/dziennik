@@ -1,2 +1,5 @@
 RewriteEngine On
-RewriteRule (.*) main.tpl.php?$1     
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule (.*) main.tpl.php?$1 [L] 
