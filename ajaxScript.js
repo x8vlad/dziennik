@@ -444,11 +444,19 @@ $(document).ready(function () {
           console.log("go to the next one ajax");
           // must to create another file to gett session user
           $.ajax({
-            url: BASE_URL + "assets/index.tpl.php",
+            url: BASE_URL + "controllers/getUser.php",
+            dataType: "json",
             success: function(response){
               console.log("all ok in second ajax");
               if(response.status == "success"){
-               
+                // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
+                $("#loginText").show();
+                $("#loginName").text(response.login).show();
+                $("#logOutBtn").show();
+              }else{
+                $("#loginText").hide();
+                $("#loginName").hide();
+                $("#logOutBtn").hide();
               }
             }
           })
@@ -480,6 +488,8 @@ $(document).ready(function () {
       },
     });
   });
+
+  //  logOutBtn
 
   // in register form to login
   $("#signInLink").on("click", function (e) {

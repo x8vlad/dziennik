@@ -196,3 +196,9 @@ Succsess login: admin and ADMIN
 Succsess login: admin and ADMIN 
 Succsess login: admin and ADMIN 
 Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: admin and ADMIN 

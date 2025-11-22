@@ -51,12 +51,11 @@
           </ul>
           <!-- for searching info -->
           <!-- Login name надо будет менять -->
-          
-          <?php if(isset($_SESSION['user'])): ?>
-          <span class="text-white me-1">You are logged in as:</span>
-          <span class="fw-bold text-white ms-1 mx-2" id="loginName"><?php echo $_SESSION['user']; ?></span>
+          <!-- if isset . session user -->
+          <span class="text-white me-1 style: display: none;">You are logged in as:</span>
+          <span class="fw-bold text-white ms-1 mx-2" id="loginName"></span>
           <a class="btn btn-outline-danger mx-3" id="logOutBtn" href="../controllers/logOut.php" type="submit">Log Out</a>
-          <?php endif?>
+          <!-- endif -->
           
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
