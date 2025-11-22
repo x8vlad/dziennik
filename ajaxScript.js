@@ -426,7 +426,6 @@ $(document).ready(function () {
         password: pwdSignIn,
       },
       dataType: "json",
-      beforeSend: loading,
       success: function (response) {
         console.log("Seccess all :)");
         console.log(response);
@@ -438,8 +437,10 @@ $(document).ready(function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-        
+
           alertTimeout();
+          $("#exampleInputEmail1").val("");
+          $("#exampleInputPassword1").val("");
         } else {
           console.log("Stmh wrong :)");
 
@@ -450,6 +451,7 @@ $(document).ready(function () {
                     </div>
                 `);
           alertTimeout();
+
         }
 
         // e.preventDefault();
