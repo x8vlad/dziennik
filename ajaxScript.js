@@ -437,10 +437,21 @@ $(document).ready(function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-
+            
           alertTimeout();
           $("#exampleInputEmail1").val("");
           $("#exampleInputPassword1").val("");
+          console.log("go to the next one ajax");
+          // must to create another file to gett session user
+          $.ajax({
+            url: BASE_URL + "assets/index.tpl.php",
+            success: function(response){
+              console.log("all ok in second ajax");
+              if(response.status == "success"){
+               
+              }
+            }
+          })
         } else {
           console.log("Stmh wrong :)");
 
