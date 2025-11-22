@@ -123,7 +123,7 @@ $(document).ready(function () {
 
           setTimeout(function () {
             window.location.href = BASE_URL + "view/ogloszenia.tpl.php";
-          }, 2000);
+          }, 200);
 
           alertTimeout(); // add_announcement.tpl.php
         } else {
@@ -357,7 +357,7 @@ $(document).ready(function () {
         password_confirm: password_confirm,
       },
       dataType: "json",
-      before: loading,
+      beforeSend: loading,
       success: function (response) {
         console.log(response);
         if (response.status === "success") {
@@ -417,6 +417,7 @@ $(document).ready(function () {
     }
     console.log("3  grabed data: " + loginSignIn + " " + pwdSignIn + " and go to ajax");
     $.ajax({
+      
       method: "POST",
       url: BASE_URL + "controllers/login.php",
       data: {
@@ -425,20 +426,22 @@ $(document).ready(function () {
         password: pwdSignIn,
       },
       dataType: "json",
-      before: loading,
+      beforeSend: loading,
       success: function (response) {
-        if (response.status === "success") {
+        console.log("Seccess all :)");
+        console.log(response);
+        // response.Status == 200
+        if (response.status == "success") {
           $("#liveAlertPlaceholder").html(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                ${response.msg}
+                Are u successful sigin
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
           alertTimeout();
-          $(
-            "#login_input, #email_input, #password_input, #password_confirm"
-          ).val("");
         } else {
+          console.log("Stmh wrong :)");
+
           $("#liveAlertPlaceholder").html(`
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         ${response.msg}
@@ -449,13 +452,13 @@ $(document).ready(function () {
         }
 
         // e.preventDefault();
-        // return;
+        return;
       },
       error: function (xhr, status, error) {
         console.log("AJAX Error:", error);
         $("#liveAlertPlaceholder").html(`
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Request error: ${error}
+                    Request erro
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `);

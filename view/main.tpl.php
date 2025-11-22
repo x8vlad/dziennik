@@ -56,7 +56,7 @@ include_once(controller('header.php'));
     <!-- sign in -- login form -->
     <div class="card shadow-lg p-4 mb-5 rounded" style="background-color: #e8ecf1ff; display:none;" id="loginBlock">
       <!--  <form action="<?= BASE_URL ?>controllers/register.php" method="POST"> -->
-      <form action="<?= BASE_URL ?>controllers/login.php" method="POST">
+      <form action="<?= BASE_URL ?>controllers/login.php" method="POST" id="loginForm">
         <!-- login pole -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Login</label>

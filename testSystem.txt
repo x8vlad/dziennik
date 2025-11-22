@@ -156,3 +156,38 @@ Succsess login:  and
 Succsess login:  and  
 Succsess login:  and  
 Succsess login: df and fd 
+Succsess login: df and fd 
+User inserted successfully: NewTeacher 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: ва and ва 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login:  and  
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+Succsess login: NewTeacher and 12 
+User inserted successfully: NewUsers 
+Succsess login: NewTeacher and 12 
+Succsess login:  and  
+Succsess login:  and  
+Succsess login: NewTeacher and 12 
+Succsess login:  and  
+Succsess login:  and  
+Succsess login: NewTeacher and 12 
+User inserted successfully: admin 
+User inserted successfully: admin 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 

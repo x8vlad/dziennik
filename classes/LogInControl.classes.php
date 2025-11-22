@@ -15,15 +15,16 @@ class LogInControl{
         $log_in = new LogIn();
         
         if($this->isValidLoginInLogin() == false){
-            // invalid login
-            header("location: ../view/main.tpl.php?error=invalidlogin");
-            exit();
+            return "invalid login";
+            // header("location: ../view/main.tpl.php?error=invalidlogin");
+            // exit();
         }
 
         if($this->isDataFilledForLogin() == false){
             // invalid login
-            header("location: ../view/main.tpl.php?error=invalidlogin");
-            exit();
+            return "empty fields";
+            // header("location: ../view/main.tpl.php?error=invalidlogin");
+            // exit();
         }
 
         if($log_in->selectUser($this->login, $this->pwd)){
@@ -32,7 +33,8 @@ class LogInControl{
             header("location: ../view/main.tpl.php?error=wrongUser");
             exit();
         }
-        // $log_in->selectUser($this->login, $this->pwd);
+        $log_in->selectUser($this->login, $this->pwd);
+        return "success";
     }
 
 
