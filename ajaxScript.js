@@ -262,7 +262,6 @@ $(document).ready(function () {
       url: BASE_URL + "controllers/remove_announcement.php",
       // вся информация о том что ввели
       method: "POST",
-      beforeSend: loading,
       //функция которая выплнится если запрос успешен(стутс 200 и Редистатус 4)
       success: function (response) {
         // искючаем 1
@@ -357,7 +356,6 @@ $(document).ready(function () {
         password_confirm: password_confirm,
       },
       dataType: "json",
-      beforeSend: loading,
       success: function (response) {
         console.log(response);
         if (response.status === "success") {
@@ -417,7 +415,6 @@ $(document).ready(function () {
     }
     console.log("3  grabed data: " + loginSignIn + " " + pwdSignIn + " and go to ajax");
     $.ajax({
-      
       method: "POST",
       url: BASE_URL + "controllers/login.php",
       data: {
@@ -490,7 +487,22 @@ $(document).ready(function () {
   });
 
   //  logOutBtn
+  $("#logOutBtn").on("click", function(e){
+      e.preventDefault();
+      console.log(" 1 - U cliked logout btn");
 
+      $.ajax({
+           url: BASE_URL + "controllers/logOut.php",
+           dataType: "json",
+           success: function(response){
+              if(response.status == "success"){
+                   $("#loginText").hide();
+                   $("#loginName").hide();
+                   $("#logOutBtn").hide();
+                }
+           }
+      });
+  });
   // in register form to login
   $("#signInLink").on("click", function (e) {
     // console.log("all ok");

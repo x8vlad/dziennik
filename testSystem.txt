@@ -202,3 +202,9 @@ Succsess login: NewTeacher and 12
 Succsess login: NewTeacher and 12 
 Succsess login: NewTeacher and 12 
 Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+User inserted successfully: testAll 
+Succsess login: testAll and 123 
+User inserted successfully: Tymofi 
+Succsess login: Tymofi and 12 
