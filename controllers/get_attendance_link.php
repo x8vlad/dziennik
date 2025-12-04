@@ -1,7 +1,7 @@
 <?php require_once(__DIR__ . '/../config/config.php'); ?>
 <?php require_once(__DIR__ . '/../controllers/header.php'); ?>
 <?php
-// header("Content-Type: application/json");
+
 // echo "<pre>";
 //     print_r($munuLinks);
 // echo "</pre>";
@@ -13,8 +13,14 @@ foreach($munuLinks as $munuLink){
         $attendance_url = $munuLink['url'];
     }
 }
-echo $attendance_lable;
-echo "<br>";
-echo $attendance_url;
-
+// echo $attendance_lable;
+// echo "<br>";
+// echo $attendance_url;
+$response_data = [
+    "status" => "success",
+    "attendanceLable" => $attendance_lable,
+    "attendanceUrl" => $attendance_url,
+];
+header("Content-Type: application/json");
+echo json_encode($response_data);
 ?>
