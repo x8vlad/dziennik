@@ -12,6 +12,7 @@ if(isset($_SESSION['user'])){
         "login" => $_SESSION['user'],
         "role" => $userRole
     ]);
+    
 }else{
     echo json_encode([
         "status" => "not login",

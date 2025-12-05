@@ -7,6 +7,7 @@ class UserModel {
         if(!$stmt->execute()){
             return false;
         }
+        
         $role = $stmt->fetchColumn();
         return $role;
        

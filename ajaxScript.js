@@ -300,7 +300,8 @@ $(document).ready(function () {
                 let userRole = response.role;
                 if(userRole == "teacher"){
                   console.log("U a teacehr");
-                }
+                } 
+                
                 // console.log(user + " " + userRole);
                 $("#loginText").show();
                 $("#loginName").text(response.login).show();
