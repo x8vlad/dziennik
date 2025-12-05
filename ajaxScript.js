@@ -290,6 +290,14 @@ $(document).ready(function () {
       let label = data.attendanceLable;
       console.log(label);
       console.log(url);
+      $.ajax({
+            url: BASE_URL + "controllers/getUser.php",
+            dataType: "json",
+            success: function(response){
+              let user = response.login;
+              console.log(user);
+            }
+      });
     },
     error: function (xhr, status, error) {
       console.log(`Smth wrond: ${error} status is: ${status}`);
