@@ -1,14 +1,13 @@
 <?php
     include_once(__DIR__ . '/../config/config.php');
     include_once(controller('header.php'));
-    include_once(ROOT_PATH  . '/database.php');
 
 ?>
      <div class="container my-5">
       <h1>attendance!</h1>
       <div class="col-lg-8 px-0">
         <p>attendance</p>
-
+ 
         <hr class="col-1 my-4">
         <!-- странно почему с оглошениямси работает шаблон -->
         <!-- <a href="ogloszenia.tpl.php" class="btn btn-primary">ogloszenia</a> -->
