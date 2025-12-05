@@ -294,8 +294,18 @@ $(document).ready(function () {
             url: BASE_URL + "controllers/getUser.php",
             dataType: "json",
             success: function(response){
-              let user = response.login;
-              console.log(user);
+              if(response.status == "success"){
+                // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
+                let user = response.login;
+                console.log(user);
+                $("#loginText").show();
+                $("#loginName").text(response.login).show();
+                $("#logOutBtn").show();
+              }else{
+                $("#loginText").hide();
+                $("#loginName").hide();
+                $("#logOutBtn").hide();
+              } 
             }
       });
     },
