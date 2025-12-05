@@ -148,6 +148,10 @@ $(document).ready(function () {
     });
   });
 
+  //attendance 
+
+  
+
   // looking as wich page is now
   if (window.location.pathname.includes("ogloszenia.tpl.php")) {
     const msg = sessionStorage.getItem("alertMsg");
@@ -274,6 +278,22 @@ $(document).ready(function () {
         $("div.text-center").hide();
       },
     });
+  });
+
+  // attendance: 
+  $.ajax({
+    url: "get_attendance_link.php",
+    dataType: "json",
+    success: function(data){
+      console.log(data);
+      let url = data.attendanceUrl;
+      let lable = data.attendanceLable;
+      console.log(lable);
+      console.log(url);
+    },
+    error: function (xhr, status, error) {
+      console.log("Smth wrond: " + error + "status is: " + status);
+    }
   });
 
   // remove this record

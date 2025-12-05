@@ -9,4 +9,3 @@ function view($file){
 function controller($file){
     return ROOT_PATH  . '/controllers/' . $file;
 }
-?>

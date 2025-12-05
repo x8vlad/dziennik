@@ -5,8 +5,8 @@
 // echo "<pre>";
 //     print_r($munuLinks);
 // echo "</pre>";
-$attendance_lable;
-$attendance_url;
+$attendance_lable = null;
+$attendance_url = null;
 foreach($munuLinks as $munuLink){
     if($munuLink['lable'] === "attendance" && $munuLink['url'] === '/ja/projectPHP/dziennik/view/attendance.tpl.php'){
         $attendance_lable = $munuLink['lable'];
@@ -23,4 +23,5 @@ $response_data = [
 ];
 header("Content-Type: application/json");
 echo json_encode($response_data);
+exit();
 ?>
