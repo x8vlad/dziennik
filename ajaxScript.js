@@ -297,7 +297,11 @@ $(document).ready(function () {
               if(response.status == "success"){
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
-                console.log(user);
+                let userRole = response.role;
+                if(userRole == "teacher"){
+                  console.log("U a teacehr");
+                }
+                // console.log(user + " " + userRole);
                 $("#loginText").show();
                 $("#loginName").text(response.login).show();
                 $("#logOutBtn").show();

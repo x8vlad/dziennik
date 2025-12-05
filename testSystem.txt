@@ -216,3 +216,8 @@ Succsess login: admin and ADMIN
 Succsess login: admin and ADMIn 
 Succsess login: admin and ADMIN 
 Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+Succsess login: admin and ADMIN 
+User inserted successfully: DarekTeacher199 
+Succsess login: DarekTeacher199 and 9090 
