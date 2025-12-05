@@ -1,7 +1,4 @@
-<?php require_once(__DIR__ . '/../config/config.php'); ?>
-<?php require_once(__DIR__ . '/../controllers/header.php'); ?>
-<?php
-
+<?php require_once(__DIR__ . '/../controllers/menu_data.php');
 // echo "<pre>";
 //     print_r($munuLinks);
 // echo "</pre>";

@@ -1,6 +1,4 @@
-<!-- шаблон -->
 <?php require_once(__DIR__ . '/../config/config.php'); ?>
-
 <!doctype html>
 <html lang="en">
   <head>
