@@ -282,17 +282,17 @@ $(document).ready(function () {
 
   // attendance: 
   $.ajax({
-    url: "get_attendance_link.php",
+    url: BASE_URL + "controllers/get_attendance_link.php",
     dataType: "json",
     success: function(data){
       console.log(data);
       let url = data.attendanceUrl;
-      let lable = data.attendanceLable;
-      console.log(lable);
+      let label = data.attendanceLable;
+      console.log(label);
       console.log(url);
     },
     error: function (xhr, status, error) {
-      console.log("Smth wrond: " + error + "status is: " + status);
+      console.log(`Smth wrond: ${error} status is: ${status}`);
     }
   });
 

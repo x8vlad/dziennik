@@ -18,7 +18,11 @@ $response_data = [
     "attendanceLable" => $attendance_lable,
     "attendanceUrl" => $attendance_url,
 ];
-header("Content-Type: application/json");
-echo json_encode($response_data);
-exit();
+try{
+    header("Content-Type: application/json");
+    echo json_encode($response_data);
+    exit();
+}catch(Exception){
+}
+
 ?>
