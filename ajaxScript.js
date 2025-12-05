@@ -300,6 +300,7 @@ $(document).ready(function () {
                 let userRole = response.role;
                 if(userRole == "teacher"){
                   console.log("U a teacehr");
+                  // here code to show attendance page
                 } 
                 
                 // console.log(user + " " + userRole);
