@@ -16,8 +16,8 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
         //опредиляем prepared statment (чтобы уникать уязвиости кода)
         $stmt = Dbh::getInstance()->connect()->prepare($query);
         //  привязываем параметры (титл и контект) к значениям :title,:content
-        $stmt->bindValue(":title", $_POST['title']); // вот сдесь получаем данные
-        $stmt->bindValue(":content", $_POST['content']);
+        $stmt->bindValue(":title", $_POST['title'], PDO::PARAM_STR); // вот сдесь получаем данные
+        $stmt->bindValue(":content", $_POST['content'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             echo json_encode(
