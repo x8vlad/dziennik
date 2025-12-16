@@ -12,6 +12,9 @@ $res = $stmt;
 while($row = $res->fetch(PDO::FETCH_ASSOC)){
   echo '<tr>';
   echo '<td>' . $row['login'] . '</td>';
+  echo '<td>' . '<input type="checkbox" id="present" name="present" checked/>' . '</td>';
+  echo '<td>' . '<input type="checkbox" id="late" name="late">' . '</td>';
+  echo '<td>' . '<input type="checkbox" id="apsent" name="apsent">' . '</td>';
   echo '</tr>';
 }
 ?>
