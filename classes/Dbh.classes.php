@@ -7,6 +7,7 @@ class Dbh {
     {
         try{
             $this->connection = new PDO("mysql:host=localhost;dbname=dziennik", "root", "");
+            // if Ill have any errors pdo will be send to me always exceptions (for debug)
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection->exec("set names utf8");
         }catch(PDOException $error){
