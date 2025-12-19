@@ -308,7 +308,8 @@ $(document).ready(function () {
                   // here code to show attendance page
                 }else{
                   $("#tableBlockAttendance").hide();
-                  
+                  $("#attendanceStudentsInfo").append(`Hello: ${user} youre role is: ${userRole}`).show();
+                  $("#attendanceStudentsInfoText").append("We are hard working to show youre attendance").show();
                 }
                 
                 // console.log(user + " " + userRole);
