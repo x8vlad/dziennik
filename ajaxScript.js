@@ -299,7 +299,7 @@ $(document).ready(function () {
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
                 let userRole = response.role;
-                if(userRole == "teacher"){
+                if(userRole == "teacher" || userRole == "admin"){
                   console.log("U a teacehr");
                   console.log(userRole);
                   $("#tableBlockAttendance").show();
@@ -307,6 +307,7 @@ $(document).ready(function () {
                   // here code to show attendance page
                 }else{
                   $("#tableBlockAttendance").hide();
+                  
                 }
                 
                 // console.log(user + " " + userRole);
