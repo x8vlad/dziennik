@@ -302,6 +302,7 @@ $(document).ready(function () {
                 if(userRole == "teacher" || userRole == "admin"){
                   console.log("U a teacehr");
                   console.log(userRole);
+                  console.log(user);
                   $("#tableBlockAttendance").show();
 
                   // here code to show attendance page
