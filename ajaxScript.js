@@ -148,9 +148,7 @@ $(document).ready(function () {
     });
   });
 
-  //attendance 
-
-  
+   
 
   // looking as wich page is now
   if (window.location.pathname.includes("ogloszenia.tpl.php")) {
@@ -295,6 +293,9 @@ $(document).ready(function () {
             dataType: "json",
             success: function(response){
               if(response.status == "success"){
+                $("#tableBlockAttendance").on("change", 'input[type="checkbox"]', function(){
+                    $(this).closest("tr").find('input[type="checkbox"]').not(this).prop('checked', false);
+                });
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
                 let userRole = response.role;
@@ -302,6 +303,7 @@ $(document).ready(function () {
                   console.log("U a teacehr");
                   console.log(userRole);
                   $("#tableBlockAttendance").show();
+
                   // here code to show attendance page
                 }else{
                   $("#tableBlockAttendance").hide();
@@ -316,6 +318,14 @@ $(document).ready(function () {
                 $("#loginName").hide();
                 $("#logOutBtn").hide();
               } 
+
+              // $.ajax({
+              //   url: BASE_URL + "controllers/attendance.php",
+              //     success: function(resp){
+              //         console.log("all ok");
+                      
+              //     }
+              // });
             }
       });
     },
