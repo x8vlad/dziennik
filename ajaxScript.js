@@ -300,8 +300,12 @@ $(document).ready(function () {
                 let userRole = response.role;
                 if(userRole == "teacher"){
                   console.log("U a teacehr");
+                  console.log(userRole);
+                  $("#tableBlockAttendance").show();
                   // here code to show attendance page
-                } 
+                }else{
+                  $("#tableBlockAttendance").hide();
+                }
                 
                 // console.log(user + " " + userRole);
                 $("#loginText").show();

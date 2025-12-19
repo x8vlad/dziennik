@@ -10,7 +10,7 @@ include_once(controller('header.php'));
 
     <hr class="col-1 my-4">
 
-     <table class="table" id="tableBlockAttendance">
+     <table class="table" id="tableBlockAttendance" style="display:none;">
       <!-- <tr>data</tr> -->
             <tr>
               <th>login student</th>
