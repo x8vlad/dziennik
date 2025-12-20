@@ -22,8 +22,8 @@ include_once(controller('header.php'));
             <?php require_once(controller('attendance.php')); ?> 
         </tbody>
       </table> 
-    <h1 class="display-3" id="attendanceStudentsInfo" style="display:none;"></h1>
-    <h1 class="display-5" id="attendanceStudentsInfoText" style="display:none;"></h1>
+    <h1 class="display-5" id="attendanceStudentsInfo" style="display:none;"></h1>
+    <h1 class="display-6" id="attendanceStudentsInfoText" style="display:none;"></h1>
     <a href="<?= BASE_URL ?>view/ogloszenia.tpl.php" class="btn btn-primary">ogloszenia</a>
     <a href="<?= BASE_URL ?>controllers/grades.php" class="btn btn-secondary">Grate</a>
   </div>

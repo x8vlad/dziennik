@@ -299,19 +299,19 @@ $(document).ready(function () {
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
                 let userRole = response.role;
+                console.log(userRole);
+                
                 if(userRole == "teacher" || userRole == "admin"){
                   console.log("U a teacehr");
                   console.log(userRole);
                   console.log(user);
                   $("#tableBlockAttendance").show();
-
                   // here code to show attendance page
                 }else{
                   $("#tableBlockAttendance").hide();
                   $("#attendanceStudentsInfo").append(`Hello: ${user} youre role is: ${userRole}`).show();
                   $("#attendanceStudentsInfoText").append("We are hard working to show youre attendance").show();
                 }
-                
                 // console.log(user + " " + userRole);
                 $("#loginText").show();
                 $("#loginName").text(response.login).show();
