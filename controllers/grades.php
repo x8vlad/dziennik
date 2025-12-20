@@ -1,15 +1,18 @@
 <?php
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
-// avg grade
-$queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
-              FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
-              WHERE user_id=1 GROUP BY `grades`.`sub_id`;";
+include_once('../models/gradeModel.php');
 
-$stmt = Dbh::getInstance()->connect()->prepare($queryAVG);
-$stmt->execute();
-$result = Dbh::getInstance()->connect()->query($queryAVG);
-$totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
+$getAVGgrades = new gradeModel();
+$userID = $getAVGgrades->getAVGGrades();
+// avg grade
+// $queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
+//               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
+//               WHERE user_id=1 GROUP BY `grades`.`sub_id`;";
+// $stmt = Dbh::getInstance()->connect()->prepare($queryAVG);
+// $stmt->execute();
+// $result = Dbh::getInstance()->connect()->query($queryAVG);
+// $totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
 // to avg
 // echo "<pre>";
 // var_dump($totalQuery);

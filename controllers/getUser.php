@@ -9,6 +9,7 @@ if(isset($_SESSION['user'])){
     $userRole = $userModel->getRole($_SESSION['user']);
     echo json_encode([
         "status" => "success",
+        "id" => $userID,
         "login" => $_SESSION['user'],
         "role" => $userRole
     ]);
