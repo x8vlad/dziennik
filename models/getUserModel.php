@@ -12,11 +12,17 @@ class UserModel {
         $role = $stmt->fetchColumn();
         return $role;
     }
+    
     //methods to grab the userID
-    public function getUserID($userID, $userLogin){
+    public function getUserID($userLogin){
         $query_id = 'SELECT users.id FROM `users` WHERE login = :login';
         $stmt = Dbh::getInstance()->connect()->prepare($query_id);
+        $stmt->bindValue(":login", $userLogin);
+        if(!$stmt->execute()){
+            return false;
+        }
 
-
+        $userID = $stmt->fetchColumn();
+        return $userID;
     }
 }

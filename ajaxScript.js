@@ -299,12 +299,15 @@ $(document).ready(function () {
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
                 let userRole = response.role;
+                let userID = response.id;
                 console.log(userRole);
+                console.log("User id is: " + userID); 
                 
                 if(userRole == "teacher" || userRole == "admin"){
                   console.log("U a teacehr");
                   console.log(userRole);
                   console.log(user);
+                  console.log("User id is: " + userID); 
                   $("#tableBlockAttendance").show();
                   // here code to show attendance page
                 }else{

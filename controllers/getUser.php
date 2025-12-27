@@ -7,9 +7,10 @@ header("Content-Type: application/json");
 if(isset($_SESSION['user'])){
     $userModel = new UserModel();
     $userRole = $userModel->getRole($_SESSION['user']);
+    $userID = $userModel->getUserID($_SESSION['user']);
     echo json_encode([
         "status" => "success",
-        // "id" => $userID,
+        "id" => $userID,
         "login" => $_SESSION['user'],
         "role" => $userRole
     ]);
