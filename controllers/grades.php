@@ -4,7 +4,7 @@ include_once('../classes/Dbh.classes.php');
 include_once('../models/gradeModel.php');
 
 $getAVGgrades = new gradeModel();
-$userID = $getAVGgrades->getAVGGrades();
+// $userID = $getAVGgrades->getAVGGrades();
 // avg grade
 // $queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
 //               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 

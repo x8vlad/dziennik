@@ -1,5 +1,6 @@
 <?php
 class gradeModel{
+    //methodfs to get avg grade
     public function getAVGGrades($userID){
         $queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
               FROM `grades` LEFT JOIN subjects ON subjects.id=grades.sub_id 
@@ -13,5 +14,11 @@ class gradeModel{
         $result = Dbh::getInstance()->connect()->query($queryAVG);
         $totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
     }
+    //methodfs to get grade from first period
+    // public func getFirstPeriodGrade() {..$queryFirstGrade..}
 
+
+
+    //methodfs to get grade from second period
+    // public func getSecondPeriodGrade() {..$querySecondGrade..}
 } 
