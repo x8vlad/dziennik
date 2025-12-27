@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../classes/Dbh.classes.php'); 
-require_once('../models/getUserModel.php');
+require_once('../models/getUserRoleModel.php');
 header("Content-Type: application/json");
 
 if(isset($_SESSION['user'])){
