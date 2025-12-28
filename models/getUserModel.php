@@ -12,7 +12,7 @@ class UserModel {
         $role = $stmt->fetchColumn();
         return $role;
     }
-    
+
     //methods to grab the userID
     public function getUserID($userLogin){
         $query_id = 'SELECT users.id FROM `users` WHERE login = :login';

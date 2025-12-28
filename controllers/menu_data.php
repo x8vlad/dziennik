@@ -21,7 +21,7 @@ $munuLinks = [
         'url' => '/ja/projectPHP/dziennik/view/attendance.tpl.php',
     ],
     [
-        'lable' => 'Grate',
+        'lable' => 'Grade',
         'url' => '/ja/projectPHP/dziennik/controllers/grades.php',
     ],
 ];

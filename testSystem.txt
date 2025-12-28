@@ -248,3 +248,14 @@ Succsess login: DarekTeacher199 and 9090
 Succsess login: Olek23 and 1212 
 Succsess login: Olek23 and 1212 
 Succsess login: Olek23 and 1212 
+Succsess login: DarekTeacher199 and 9090 
+Succsess login: NewTeacher90 and 9090 
+User inserted successfully: NewTeacher90 
+Succsess login: NewTeacher90 and 9090 
+Succsess login: NewTeacher90 and 1212 
+User inserted successfully: Darius200 
+Succsess login: Daruis200 and 123 
+Succsess login: Daruis200 and 123 
+Succsess login: Daruis200 and 123 
+Succsess login: Daruis200 and 123 
+Succsess login: Darius200 and 123 
