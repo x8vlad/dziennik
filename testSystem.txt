@@ -259,3 +259,9 @@ Succsess login: Daruis200 and 123
 Succsess login: Daruis200 and 123 
 Succsess login: Daruis200 and 123 
 Succsess login: Darius200 and 123 
+Succsess login: bob1 and bob_123_@g 
+Succsess login: bob1 and bob_123_@g 
+Succsess login: bob1 and bob_123_@g 
+Succsess login: bob1 and bob_123_ 
+User inserted successfully: alice345 
+Succsess login: alice345 and 1234 

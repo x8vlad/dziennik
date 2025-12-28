@@ -2,8 +2,20 @@
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
 include_once('../models/gradeModel.php');
+// include controller for grab the id users
+include_once('../controllers/getUser.php');
+include_once('../models/getUserModel.php');
 
+$userModel = new UserModel();
+$userID = $userModel->getUserID($_SESSION['user']);
+
+// create an object of GradeModel for using him methods
 $getAVGgrades = new gradeModel();
+
+$getAVGgrades->getAVGGrades($userID);
+
+
+
 // $userID = $getAVGgrades->getAVGGrades();
 // avg grade
 // $queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade

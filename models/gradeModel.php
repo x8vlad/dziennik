@@ -13,10 +13,12 @@ class gradeModel{
 
         $result = Dbh::getInstance()->connect()->query($queryAVG);
         $totalQuery = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $totalQuery;
     }
+
+
     //methodfs to get grade from first period
     // public func getFirstPeriodGrade() {..$queryFirstGrade..}
-
 
 
     //methodfs to get grade from second period
