@@ -19,12 +19,22 @@ class gradeModel{
 
     //methodfs to get grade from first period ..$queryFirstGrade..
     public function getFirstPeriodGrade($userID) {
+        $queryFirstGrade = "SELECT sub_id, AVG(grade) AS grade_first 
+            FROM `grades` 
+            WHERE created_ad < '2025-05-08' AND user_id=:user_id GROUP BY sub_id;";
 
+        $stmt = Dbh::getInstance()->connect()->prepare($queryFirstGrade);
+        if(!$stmt->execute()){
+            return false;
+        }
+        $result = Dbh::getInstance()->connect()->query($queryFirstGrade);
+        $totalQueryFirstGrade = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $totalQueryFirstGrade;
     }
 
 
     //methodfs to get grade from second period ..$querySecondGrade..}
     public function getSecondPeriodGrade($userID) {
-        
+
     }
 } 
