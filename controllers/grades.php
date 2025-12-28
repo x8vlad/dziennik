@@ -10,9 +10,11 @@ $userModel = new UserModel();
 $userID = $userModel->getUserID($_SESSION['user']);
 
 // create an object of GradeModel for using him methods
-$getAVGgrades = new gradeModel();
+$getGrades = new gradeModel();
 
-$getAVGgrades->getAVGGrades($userID);
+$getGrades->getAVGGrades($userID); // get AVG grade
+$getGrades->getFirstPeriodGrade($userID); // get grade from the first period
+$getGrades->getSecondPeriodGrade($userID); // get grade from the second period
 
 
 
