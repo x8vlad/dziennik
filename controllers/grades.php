@@ -43,14 +43,14 @@ $getAVGgrades->getAVGGrades($userID);
 // $totalQueryFirstGrade = $result->fetchAll(PDO::FETCH_ASSOC);
 
 // period 2
-$querySecondGrade = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
-WHERE created_ad > '2025-05-08' AND user_id=1
-GROUP BY sub_id;";
-$stmt = Dbh::getInstance()->connect()->prepare($querySecondGrade);
-$stmt->execute();
-$result = Dbh::getInstance()->connect()->query($querySecondGrade);
+// $querySecondGrade = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
+// WHERE created_ad > '2025-05-08' AND user_id=1
+// GROUP BY sub_id;";
+// $stmt = Dbh::getInstance()->connect()->prepare($querySecondGrade);
+// $stmt->execute();
+// $result = Dbh::getInstance()->connect()->query($querySecondGrade);
 
-$totalQuerySecondGrade = $result->fetchAll(PDO::FETCH_ASSOC);
+// $totalQuerySecondGrade = $result->fetchAll(PDO::FETCH_ASSOC);
 //echo '<pre>';
 // var_dump($totalQuery, $totalQuery1, $totalQuery2);
 
