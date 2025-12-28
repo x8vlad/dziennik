@@ -17,10 +17,14 @@ class gradeModel{
     }
 
 
-    //methodfs to get grade from first period
-    // public func getFirstPeriodGrade() {..$queryFirstGrade..}
+    //methodfs to get grade from first period ..$queryFirstGrade..
+    public function getFirstPeriodGrade($userID) {
+
+    }
 
 
-    //methodfs to get grade from second period
-    // public func getSecondPeriodGrade() {..$querySecondGrade..}
+    //methodfs to get grade from second period ..$querySecondGrade..}
+    public function getSecondPeriodGrade($userID) {
+        
+    }
 } 
