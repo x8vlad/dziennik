@@ -2,7 +2,7 @@
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
 include_once('../models/gradeModel.php');
-// include controller for grab the id users
+// include controller for grab the id users problem with shwoing JOSN header in getUser controller ..
 include_once('../controllers/getUser.php');
 include_once('../models/getUserModel.php');
 
