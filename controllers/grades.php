@@ -17,7 +17,6 @@ $getGrades->getFirstPeriodGrade($userID); // get grade from the first period
 $getGrades->getSecondPeriodGrade($userID); // get grade from the second period
 
 
-
 // $userID = $getAVGgrades->getAVGGrades();
 // avg grade
 // $queryAVG = "SELECT subjects.name, grades.sub_id, ROUND(AVG(grade),2) AS avg_grade
@@ -57,17 +56,17 @@ $getGrades->getSecondPeriodGrade($userID); // get grade from the second period
 // var_dump($totalQuery, $totalQuery1, $totalQuery2);
 
 //$finallArr=array_merge($totalQuery, $totalQuery1, $totalQuery2);
-
+// $getGrades->getAVGGrades($userID);
 $allArray = [];
-foreach($totalQuery as $item) { $allArray[] = $item; } // avg
-foreach($totalQueryFirstGrade as $item){ $allArray[] = $item; } // first grade
-foreach($totalQuerySecondGrade as $item){ $allArray[] = $item; } // second grade
+foreach($getGrades->getAVGGrades($userID) as $item) { $allArray[] = $item; } // avg
+foreach($getGrades->getFirstPeriodGrade($userID) as $item){ $allArray[] = $item; } // first grade
+foreach($getGrades->getSecondPeriodGrade($userID) as $item){ $allArray[] = $item; } // second grade
 
 // print_r($allArray);
 
 $subjects = [];
 
-foreach ($totalQuery as $item) {
+foreach ($getGrades->getAVGGrades($userID) as $item) {
     $subId = $item['sub_id'];
     
     if(!isset($subjects[$subId])){
@@ -79,13 +78,13 @@ foreach ($totalQuery as $item) {
     }
 }
 
-foreach ($totalQueryFirstGrade as $item) {
+foreach ($getGrades->getFirstPeriodGrade($userID) as $item) {
     $subId = $item['sub_id'];
 
     $subjects[$subId]['first_grade'] = $item['grade_first'];
 }
 
-foreach ($totalQuerySecondGrade as $item) {
+foreach ($getGrades->getSecondPeriodGrade($userID) as $item) {
     $subId = $item['sub_id'];
 
     $subjects[$subId]['second_grade'] = $item['grade_second'];
@@ -97,6 +96,6 @@ function color_сell($grade){
     elseif($grade < 5) {return 'table-warning';}
     else {return 'table-success';}
 }
-// var_dump($subjects);
-// exit;
+var_dump($subjects);
+exit;
 include_once(view('grades.tpl.php'));
