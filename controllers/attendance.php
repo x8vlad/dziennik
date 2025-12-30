@@ -1,13 +1,17 @@
 <?php
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
+include_once('../models/attendanceModel.php');
 
-$query = "SELECT login FROM `users` WHERE users.role = :student ORDER BY users.id ASC";
-$stmt = Dbh::getInstance()->connect()->prepare($query);
-$stmt->bindValue(":student", "student");
-$stmt->execute();
+// $query = "SELECT login FROM `users` WHERE users.role = :student ORDER BY users.id ASC";
+// $stmt = Dbh::getInstance()->connect()->prepare($query);
+// $stmt->bindValue(":student", "student");
+// $stmt->execute();
 
-$res = $stmt;
+// $res = $stmt;
+
+$attendanceObject = new attendanceModel();
+$res = $attendanceObject->getStudentsLogins();
 
 while($row = $res->fetch(PDO::FETCH_ASSOC)){
   echo '<tr>';
