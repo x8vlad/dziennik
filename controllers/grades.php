@@ -6,6 +6,7 @@ include_once('../models/gradeModel.php');
 // include controller for grab the id users problem with shwoing JOSN header in getUser controller ..
 // include_once('../controllers/getUser.php');
 include_once('../models/getUserModel.php');
+include_once('../helpers/auth.php');
 
 $userModel = new UserModel();
 isUser($_SESSION['user']); // fn which redirect user is not exist 
@@ -98,12 +99,7 @@ function color_сell($grade){
     elseif($grade < 5) {return 'table-warning';}
     else {return 'table-success';}
 }
-function isUser($user){
-    if(!isset($user)){
-        header("Location: ../view/main.tpl.php?error=noFindUser");
-        exit();
-    }
-}
+
 // var_dump($subjects);
 // exit;
 include_once(view('grades.tpl.php'));
