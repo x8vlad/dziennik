@@ -271,7 +271,7 @@ $(document).ready(function () {
           // удаляем строки из таблицы
           $("table tr").not(":first").remove();
         } else {
-          console.error("Ошибка при удалении: ", response);
+          console.error("error with removing: ", response);
         }
         $("div.text-center").hide();
       },

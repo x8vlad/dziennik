@@ -5,6 +5,5 @@ class removeAnnouncementModel{
         if(Dbh::getInstance()->connect()->exec($remove_data_query)){
             return true;
         }else {return false;}
-        // return "ok";
     }
 }

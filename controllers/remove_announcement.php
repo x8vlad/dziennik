@@ -9,6 +9,6 @@ $removeAnnouncementObject->removeAllAnnouncement();
     // $stmt = Dbh::getInstance()->connect()->prepare($remove_data_query);
     // Dbh::getInstance()->connect()->exec($remove_data_query);
     
-    // echo "ok";
+    echo "ok";
 ?>
 
