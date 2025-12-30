@@ -1,12 +1,13 @@
 <?php
   // т е аналог для mysqli_fetch_assoc()
-  include_once(__DIR__ . '/../config/config.php');
-  include_once('../classes/Dbh.classes.php');
+include_once(__DIR__ . '/../config/config.php');
+include_once('../classes/Dbh.classes.php');
+include_once('../models/tableContentAJAXModel.php');
   
-  $query_select_acnnouncement = "SELECT * FROM announcement ORDER BY created_at ASC";
-  $result = Dbh::getInstance()->connect()->query($query_select_acnnouncement);
+$showAnnouncementObject = new ShowAnnouncement();
+$result = $showAnnouncementObject->showAnnouncement();
 
-  while($row = $result->fetch(PDO::FETCH_ASSOC)){
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
     echo '<tr id="announcement-' . $row['id'] . '">';
       echo '<td>' . $row['id'] . '</td>';
 
