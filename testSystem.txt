@@ -273,3 +273,15 @@ Succsess login: Darius200 and 123
 Succsess login: Darius200 and 1234 
 Succsess login: Darius200 and 1234 
 Succsess login: Darius200 and 1234 
+User inserted successfully: JohnD 
+Succsess login: JohnD and 000 
+Succsess login: alice345 and 1234 
+Succsess login: JohnD and 000 
+Succsess login: JohnD and 000 
+Succsess login: JohnD and 000 
+Succsess login: JohnD and 000 
+Succsess login: alice345 and 1234 
+Succsess login: Darius200 and 1234 
+User inserted successfully: AlbertO90 
+Succsess login: AlbertO90 and 890 
+Succsess login: JohnD and 000 

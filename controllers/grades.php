@@ -8,6 +8,7 @@ include_once('../models/gradeModel.php');
 include_once('../models/getUserModel.php');
 
 $userModel = new UserModel();
+isUser($_SESSION['user']); // fn which redirect user is not exist 
 $userID = $userModel->getUserID($_SESSION['user']);
 
 // create an object of GradeModel for using him methods
@@ -96,6 +97,11 @@ function color_сell($grade){
     if($grade <= 3) {return 'table-danger';}
     elseif($grade < 5) {return 'table-warning';}
     else {return 'table-success';}
+}
+function isUser($user){
+    if(!isset($user)){
+        header("Location: ../view/main.tpl.php?error=noFindUser");
+    }
 }
 // var_dump($subjects);
 // exit;
