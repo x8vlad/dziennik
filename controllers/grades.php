@@ -93,13 +93,6 @@ foreach ($getGrades->getSecondPeriodGrade($userID) as $item) {
     $subjects[$subId]['second_grade'] = $item['grade_second'];
 }
 
-
-function color_сell($grade){
-    if($grade <= 3) {return 'table-danger';}
-    elseif($grade < 5) {return 'table-warning';}
-    else {return 'table-success';}
-}
-
 // var_dump($subjects);
 // exit;
 include_once(view('grades.tpl.php'));
