@@ -95,4 +95,5 @@ foreach ($getGrades->getSecondPeriodGrade($userID) as $item) {
 
 // var_dump($subjects);
 // exit;
+include_once('../helpers/ui.php');
 include_once(view('grades.tpl.php'));
