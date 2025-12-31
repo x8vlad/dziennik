@@ -3,6 +3,7 @@
 session_start();
 include_once(__DIR__ . '/../config/config.php');
 include_once(controller('header.php'));
+// include_once(helpers('.php'));
 ?>
 <div class="container my-5">
   <h1>Hello, world!</h1>
@@ -80,5 +81,7 @@ include_once(controller('header.php'));
     <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
   </div>
 </div>
+<?php else: ?>
+<h4>You already sign in like: <?php echo $_SESSION['user']; ?></h4>
 <?php endif; ?>
 <?php include_once(view('footer.php')); ?>
