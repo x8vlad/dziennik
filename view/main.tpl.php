@@ -9,7 +9,7 @@ include_once(controller('header.php'));
   
     <div id="liveAlertPlaceholder"></div>
     
-
+<?php if(!isset($_SESSION['user'])): ?>
   <div class="col-lg-8 px-0">
     <p id="headerRegister">Register form</p>
     <!-- в ajax бдут менять когда login показывать this p когда регистр то тот выше -->
@@ -80,5 +80,5 @@ include_once(controller('header.php'));
     <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
   </div>
 </div>
-
+<?php endif; ?>
 <?php include_once(view('footer.php')); ?>

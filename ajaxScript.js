@@ -295,7 +295,8 @@ $(document).ready(function () {
               if(response.status == "success"){
                 $("#tableBlockAttendance").on("change", 'input[type="checkbox"]', function(){
                     $(this).closest("tr").find('input[type="checkbox"]').not(this).prop('checked', false);
-                });
+                }); 
+               
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
                 let user = response.login;
                 let userRole = response.role;
@@ -508,6 +509,7 @@ $(document).ready(function () {
             url: BASE_URL + "controllers/getUser.php",
             dataType: "json",
             success: function(response){
+              // remove login form 
               console.log("all ok in second ajax");
               if(response.status == "success"){
                 // respone -> json get login field (echo json_encode([ "status" => "success", "login" => $_SESSION['user'] ]);)
