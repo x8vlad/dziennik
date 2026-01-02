@@ -2,15 +2,19 @@
 // session (мб надо бует ввер в new тег пхп перенси) MAIN PAGE
 session_start();
 include_once(__DIR__ . '/../config/config.php');
+include_once(helpers('auth.php'));
+noRequireAuth();
+
 include_once(controller('header.php'));
-// include_once(helpers('.php'));
+
+
 ?>
 <div class="container my-5">
   <h1>Hello, world!</h1>
   
     <div id="liveAlertPlaceholder"></div>
     
-<?php if(!isset($_SESSION['user'])): ?>
+
   <div class="col-lg-8 px-0">
     <p id="headerRegister">Register form</p>
     <!-- в ajax бдут менять когда login показывать this p когда регистр то тот выше -->
@@ -81,7 +85,8 @@ include_once(controller('header.php'));
     <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
   </div>
 </div>
-<?php else: ?>
-<h4>You already sign in like: <?php echo $_SESSION['user']; ?></h4>
-<?php endif; ?>
+
+
+<!-- remove endif and else -->
+
 <?php include_once(view('footer.php')); ?>
