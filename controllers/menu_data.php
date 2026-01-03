@@ -24,4 +24,8 @@ $munuLinks = [
         'lable' => 'Grade',
         'url' => '/ja/projectPHP/dziennik/controllers/grades.php',
     ],
+    [
+        'lable' => 'Profile',
+        'url' => '/ja/projectPHP/dziennik/view/profile.tpl.php',
+    ]
 ];
