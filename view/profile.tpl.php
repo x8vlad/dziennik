@@ -1,11 +1,16 @@
 <?php
+// session_start();
 include_once(__DIR__ . '/../config/config.php');
 include_once(controller("header.php"));
+include_once(helpers("auth.php"));
+include_once(controller("profile.php"));
 // echo __DIR__;
 // echo "<br>";
 // echo ROOT_PATH;
+// isNotUser($_SESSION['user']);
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="../assets/profile.js"></script>
 <div class="py-5 px-4">
     <div class="row g-4">
       <div class="col-lg-4">
@@ -77,5 +82,6 @@ include_once(controller("header.php"));
   </div>
 </div>
 </div>
+
 <?php
 include_once(view("footer.php")); ?>

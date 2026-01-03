@@ -278,6 +278,10 @@ $(document).ready(function () {
     });
   });
 
+  // For profile change data info about user
+  // create a new file for it
+
+
   // attendance: 
   $.ajax({
     url: BASE_URL + "controllers/get_attendance_link.php",

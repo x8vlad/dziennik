@@ -9,7 +9,7 @@ include_once('../models/getUserModel.php');
 include_once('../helpers/auth.php');
 
 $userModel = new UserModel();
-isUser($_SESSION['user']); // fn which redirect user is not exist 
+isNotUser($_SESSION['user']); // fn which redirect user is not exist 
 $userID = $userModel->getUserID($_SESSION['user']);
 
 // create an object of GradeModel for using him methods
