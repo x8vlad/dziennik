@@ -41,7 +41,9 @@
               <a class="nav-link" href="<?=$link['url'];?>"><?=$link['lable'];?></a>
             </li>  
           <?php endforeach; ?>
-        
+              <a class="btn btn-outline-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Setting
+              </a>
               <!-- foreach($munuLinks as $link){
                 echo "<li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"{$link['url']}\">{$link['lable']}</a>
@@ -64,6 +66,7 @@
       </div>      
    </div>
 </nav>
+
 <!-- loadingn icon xD -->
 <div class="text-center my-5"  style="display: none">
   <div class="spinner-border" role="status">
