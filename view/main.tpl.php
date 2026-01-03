@@ -3,7 +3,7 @@
 session_start();
 include_once(__DIR__ . '/../config/config.php');
 include_once(helpers('auth.php'));
-noRequireAuth();
+// noRequireAuth();
 
 include_once(controller('header.php'));
 
@@ -14,7 +14,7 @@ include_once(controller('header.php'));
   
     <div id="liveAlertPlaceholder"></div>
     
-
+<?php if(!isset($_SESSION['user'])): ?>
   <div class="col-lg-8 px-0">
     <p id="headerRegister">Register form</p>
     <!-- в ajax бдут менять когда login показывать this p когда регистр то тот выше -->
@@ -86,7 +86,7 @@ include_once(controller('header.php'));
   </div>
 </div>
 
-
+<?php endif; ?>
 <!-- remove endif and else -->
 
 <?php include_once(view('footer.php')); ?>

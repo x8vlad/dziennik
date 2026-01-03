@@ -5,19 +5,77 @@ include_once(controller("header.php"));
 // echo "<br>";
 // echo ROOT_PATH;
 ?>
-<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-  Profile page
-</div>
 
-<div class="card my-5" style="width: 70rem;">
-  <div class="card-body">
-    <h5 class="card-title">Profile info</h5>
-        <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name of user: </li>
-                <li class="list-group-item">User role: </li>
-                <li class="list-group-item">Data of sign up: </li>
-            </ul>
+<div class="py-5 px-4">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+          <div class="card-body text-center pt-5">
+            <div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 100px; height: 100px;">
+               <!-- id userAvatar to grab later and cahnge if sign in like a Student avatar will be "S"-->
+            <span class="text-white fs-1 fw-bold" id="userAvatar">U</span>
+            </div>
+            <!-- id mainUserNameLogin to grab later and cahnge -->
+            <h5 class="card-title fw-bold mb-1" id="mainUserNameLogin">Username</h5> 
+            <!-- id mainUserRole to grab later and cahnge -->
+            <p class="text-muted small" id="mainUserRole">Role</p>
+            
+            <div class="d-grid gap-2 mt-4">
+                <!-- id editProfileDate to grab later and open the modal window (like I did with edit announcement) -->
+              <button class="btn btn-primary rounded-pill" id="editProfileDate">Edit ur data</button>
+              <button class="btn btn-outline-danger rounded-pill">Exit</button>
+            </div>
+          </div>
+          <hr class="mx-4 my-0">
+          <div class="card-body">
+             <div class="d-flex justify-content-between small px-2">
+               <span class="text-muted">user ID:</span>
+               <!-- id span = "userId" to grab later and cahnge -->
+               <span class="fw-bold" id="userId">#1</span>
+             </div>
+          </div>
         </div>
-   </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-4 h-100">
+          <div class="card-header bg-transparent border-0 pt-4 px-4">
+            <h5 class="fw-bold mb-0">Information about user</h5>
+          </div>
+          <div class="card-body p-4">
+            <div class="list-group list-group-flush">
+              
+              <div class="list-group-item d-flex align-items-center py-3 px-0">
+                <div>
+                  <div class="text-muted small">Login</div>
+                   <!-- id loginSub to grab later and cahnge -->
+                    <!-- sub = subordinate/secondary -->
+                  <div class="fw-medium" id="loginSub">login</div>
+                </div>
+              </div>
+
+              <div class="list-group-item d-flex align-items-center py-3 px-0">
+                <div>
+                     <!-- id userRoleSub to grab later and cahnge | Guest show only for users which not sign in-->
+                  <div class="text-muted small">User Role:</div>
+                  <div class="fw-medium" id="userRoleSub">Student/Teacher/Admin/Guest</div>
+                </div>
+              </div>
+
+              <div class="list-group-item d-flex align-items-center py-3 px-0 border-0">
+                <div>
+                  <div class="text-muted small">Date of sign in</div>
+                  <div class="fw-medium">01.01.2025</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+<?php
+include_once(view("footer.php")); ?>

@@ -41,9 +41,7 @@
               <a class="nav-link" href="<?=$link['url'];?>"><?=$link['lable'];?></a>
             </li>  
           <?php endforeach; ?>
-              <a class="btn btn-outline-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                Setting
-              </a>
+              
               <!-- foreach($munuLinks as $link){
                 echo "<li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"{$link['url']}\">{$link['lable']}</a>
@@ -58,10 +56,14 @@
           <!-- endif -->
 
 
-          <form class="d-flex" role="search">
+          <form class="d-flex mx-3" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+
+          <a class="btn btn-light btn-sm mx-6 px-3 py-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Setting <i class="bi bi-gear my-2"></i>
+              </a>
         </div>
       </div>      
    </div>
