@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once(__DIR__ . '/../config/config.php');
 include_once('../classes/Dbh.classes.php');
 include_once('../models/gradeModel.php');
@@ -9,7 +8,7 @@ include_once('../models/getUserModel.php');
 include_once('../helpers/auth.php');
 
 $userModel = new UserModel();
-isNotUser($_SESSION['user']); // fn which redirect user is not exist 
+// isNotUser($_SESSION['user']); // fn which redirect user is not exist 
 $userID = $userModel->getUserID($_SESSION['user']);
 
 // create an object of GradeModel for using him methods

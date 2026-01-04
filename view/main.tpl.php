@@ -1,6 +1,5 @@
 <?php
 // session (мб надо бует ввер в new тег пхп перенси) MAIN PAGE
-session_start();
 include_once(__DIR__ . '/../config/config.php');
 include_once(helpers('auth.php'));
 // noRequireAuth();
