@@ -22,4 +22,18 @@ $(document).ready(function(){
         }
         }
     });
+
+    // change date on profile page
+
+    $.ajax({
+        url: BASE_URL + "controller/profile.php",
+        dataType: "json",
+        success: function(response){
+            if(response.status === "success"){
+                let signUpDate = response.dateSignUp;
+                // console.log(signUpDate);
+                $("#dateSignUp").text(signUpDate); 
+            }
+        }
+    });
 });

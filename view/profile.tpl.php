@@ -69,8 +69,9 @@ include_once(controller("profile.php"));
 
               <div class="list-group-item d-flex align-items-center py-3 px-0 border-0">
                 <div>
+                     <!-- id dateSignUp to grab later and cahnge | Guest show only for users which not sign in-->
                   <div class="text-muted small">Date of sign in</div>
-                  <div class="fw-medium">01.01.2025</div>
+                  <div class="fw-medium" id="dateSignUp">01.01.2025</div>
                 </div>
               </div>
 

@@ -17,3 +17,10 @@ CREATE TABLE `grades` (`id` INT NOT NULL AUTO_INCREMENT , `sub_id` INT NOT NULL 
 
 SELECT lessens.num_less AS num_less, subjects.name AS name_subject FROM lessens INNER JOIN subjects ON lessens.sub_id=subjects.id;
 SELECT lessens.num_less AS num_less, subjects.name AS name_subject FROM lessens INNER JOIN subjects ON lessens.sub_id=subjects.id WHERE lessens.weekday = 1;
+
+-- change instead of "rename" problem with version < 8 
+ALTER TABLE `grades` 
+CHANGE COLUMN `created_ad` `created_at` DATETIME;
+
+ALTER TABLE users
+ADD signup_date DATETIME;

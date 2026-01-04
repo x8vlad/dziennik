@@ -1,26 +1,22 @@
 <?php
-// session_start();
-// require_once('../classes/Dbh.classes.php'); 
-// require_once('../models/profileModel.php');
+session_start();
+require_once('../classes/Dbh.classes.php'); 
+require_once('../models/profileModel.php');
 
+if(isset($_SESSION['user'])){
+    $profileModel = new profileModel();
+    $userSignUpDate = $profileModel->getDate($_SESSION['user']);
+    // $userLogin = $profileModel->getUserLogin($_SESSION['user']);
 
-// if(isset($_SESSION['user'])){
-//     $profileModel = new profileModel();
-//     $userRole = $profileModel->getRole($_SESSION['user']);
-//     $userID = $profileModel->getUserID($_SESSION['user']);
-//     // $userLogin = $profileModel->getUserLogin($_SESSION['user']);
-
-//     echo json_encode([
-//         "status" => "success",
-//         "id" => $userID,
-//         "role" => $userRole,
-//         "login" => $_SESSION['user']
-//     ]);
-// }else{
-//     echo json_encode([
-//         "status" => "ErrorLogin"
-//     ]);
-//     session_destroy();
-// }
-
+    echo json_encode([
+        "status" => "success",
+        "dateSignUp" => $userSignUpDate
+    ]);
+}else{
+    echo json_encode([
+        "status" => "ErrorLogin"
+    ]);
+    session_destroy();
+}
+// ahaaa stand with problem in progile page user with id 4 doesent have a date of sign up tahts was a problem
 //this date must send to ajax and change it thanks json
