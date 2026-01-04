@@ -33,7 +33,7 @@ class gradeModel{
     public function getFirstPeriodGrade($userID) {
         $queryFirstGrade = "SELECT sub_id, AVG(grade) AS grade_first 
             FROM `grades` 
-            WHERE created_ad < '2025-05-08' AND user_id=:user_id 
+            WHERE created_at < '2025-05-08' AND user_id=:user_id 
             GROUP BY sub_id;";
 
             $stmt = Dbh::getInstance()->connect()->prepare($queryFirstGrade);
@@ -52,7 +52,7 @@ class gradeModel{
     //methodfs to get grade from second period ..$querySecondGrade..}
     public function getSecondPeriodGrade($userID) {
         $querySecondGrade = "SELECT sub_id, AVG(grade) AS grade_second FROM `grades` 
-            WHERE created_ad > '2025-05-08' AND user_id=:user_id
+            WHERE created_at > '2025-05-08' AND user_id=:user_id
             GROUP BY sub_id;";
             $stmt = Dbh::getInstance()->connect()->prepare($querySecondGrade);
             $stmt->bindValue(":user_id", $userID);
