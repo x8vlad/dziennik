@@ -27,5 +27,6 @@ $munuLinks = [
     [
         'lable' => 'Profile',
         'url' => '/ja/projectPHP/dziennik/view/profile.tpl.php',
+        'class' => 'profile-link'
     ]
 ];

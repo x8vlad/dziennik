@@ -3,7 +3,7 @@
 include_once(__DIR__ . '/../config/config.php');
 include_once(controller("header.php"));
 include_once(helpers("auth.php"));
-include_once(controller("profile.php"));
+// include_once(controller("profile.php"));
 // echo __DIR__;
 // echo "<br>";
 // echo ROOT_PATH;
@@ -85,4 +85,4 @@ include_once(controller("profile.php"));
 </div>
 
 <?php
-include_once(view("footer.php")); ?>
+include_once(view("footer.php"));?>

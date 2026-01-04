@@ -1,6 +1,7 @@
 $(document).ready(function(){
-      $.ajax({
-        url: BASE_URL + 'controllers/getUser.php',
+    console.log("start get User controller");  
+    $.ajax({
+        url: '../controllers/getUser.php',
         dataType: "json",
         success: function(response){
         if(response.status == "success"){
@@ -24,16 +25,24 @@ $(document).ready(function(){
     });
 
     // change date on profile page
-
+    if ($("#dateSignUp").length > 0) {
+    console.log("start profile.php controller");  
     $.ajax({
-        url: BASE_URL + "controller/profile.php",
+        url: "../controllers/profile.php",
         dataType: "json",
         success: function(response){
             if(response.status === "success"){
                 let signUpDate = response.dateSignUp;
                 // console.log(signUpDate);
                 $("#dateSignUp").text(signUpDate); 
+            }else{
+                console.warn("WEar in profile.php ", response.status);
             }
+        },
+        error: function(xhr, status, error){
+            console.error("error " + error);
+            console.log("status error " + status);
         }
     });
+ }
 });

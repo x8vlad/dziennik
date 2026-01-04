@@ -36,12 +36,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             
-           <?php foreach($munuLinks as $link):?>
-            <li class="nav-item">
-              <a class="nav-link" href="<?=$link['url'];?>"><?=$link['lable'];?></a>
-            </li>  
-          <?php endforeach; ?>
-              
+           <?php foreach($munuLinks as $link): ?>
+  <li class="nav-item">
+    <a class="nav-link <?= $link['class'] ?? '' ?>" href="<?= $link['url']; ?>">
+      <?= $link['lable']; ?>
+    </a>
+  </li>
+<?php endforeach; ?>
+              <!-- <a class="class" href="#">google.com</a> -->
               <!-- foreach($munuLinks as $link){
                 echo "<li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"{$link['url']}\">{$link['lable']}</a>
@@ -68,7 +70,6 @@
       </div>      
    </div>
 </nav>
-
 <!-- loadingn icon xD -->
 <div class="text-center my-5"  style="display: none">
   <div class="spinner-border" role="status">
