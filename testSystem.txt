@@ -308,3 +308,8 @@ Succsess login: Jess900 and 321
 User inserted successfully: Axel4 
 Succsess login: Axel4 and 432 
 Succsess login: Axel4 and 432 
+Succsess login: JohnD and 000 
+User inserted successfully: Amil12 
+Succsess login: Amil12 and 090 
+Succsess login: JohnD and 000 
+Succsess login: JohnD and 000 

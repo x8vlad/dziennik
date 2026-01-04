@@ -1,8 +1,9 @@
 <?php
 // session_start();
 include_once(__DIR__ . '/../config/config.php');
+include_once(helpers('auth.php'));
+requireAuth();
 include_once(controller("header.php"));
-include_once(helpers("auth.php"));
 // include_once(controller("profile.php"));
 // echo __DIR__;
 // echo "<br>";
@@ -70,7 +71,7 @@ include_once(helpers("auth.php"));
               <div class="list-group-item d-flex align-items-center py-3 px-0 border-0">
                 <div>
                      <!-- id dateSignUp to grab later and cahnge | Guest show only for users which not sign in-->
-                  <div class="text-muted small">Date of sign in</div>
+                  <div class="text-muted small">Date of sign up</div>
                   <div class="fw-medium" id="dateSignUp">01.01.2025</div>
                 </div>
               </div>

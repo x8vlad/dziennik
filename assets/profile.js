@@ -25,7 +25,7 @@ $(document).ready(function(){
     });
 
     // change date on profile page
-    if ($("#dateSignUp").length > 0) {
+    // if ($("#dateSignUp").length > 0) {
     console.log("start profile.php controller");  
     $.ajax({
         url: "../controllers/profile.php",
@@ -44,5 +44,5 @@ $(document).ready(function(){
             console.log("status error " + status);
         }
     });
- }
+//  }
 });

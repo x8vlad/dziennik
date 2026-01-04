@@ -14,6 +14,4 @@ class ShowUser{
         $stmt->execute();
         return $stmt;
     } 
-
-
 }

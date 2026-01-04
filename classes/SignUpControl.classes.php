@@ -85,5 +85,4 @@ class SignUpControl {
         if($signup->isUserExists($this->login,$this->email)){return true;}
         else{return false;}
     }
-
 }   

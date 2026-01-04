@@ -1,5 +1,4 @@
 <?php
-
 class LogInControl{
     private $login;
     private $pwd;
@@ -53,4 +52,3 @@ class LogInControl{
         }else{return false;}
     }
 }
-

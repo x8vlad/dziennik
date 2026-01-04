@@ -10,5 +10,3 @@ $removeAnnouncementObject->removeAllAnnouncement();
     // Dbh::getInstance()->connect()->exec($remove_data_query);
     
     echo "ok";
-?>
-

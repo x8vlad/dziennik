@@ -11,4 +11,3 @@ $removeRecordAnnouncementModel->removeRecord($id);
     // $stmt = Dbh::getInstance()->connect()->prepare($remove_this_record_query);
     // $stmt->bindValue(":id", $id);
     // $stmt->execute();
-?>

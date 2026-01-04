@@ -1,5 +1,7 @@
 <?php
     include_once(__DIR__ . '/../config/config.php');
+    include_once(helpers('auth.php'));
+    requireAuth();
     include_once(controller('header.php'));
     include_once('../classes/Dbh.classes.php');
     

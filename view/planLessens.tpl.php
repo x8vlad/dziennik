@@ -2,6 +2,8 @@
 // session_start();
 // include_once('database.php');
     include_once(__DIR__ . '/../config/config.php');
+    include_once(helpers('auth.php'));
+    requireAuth();
     include_once(controller('header.php'));
 ?>
 

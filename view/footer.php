@@ -20,11 +20,7 @@
       <p onclick="changeBgc()">
         Click to change to dark mode
       </p>
-
-      
-
     </div>
-    
   </div>
 </div>  
 </body>

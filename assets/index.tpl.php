@@ -38,16 +38,11 @@
             
            <?php foreach($munuLinks as $link): ?>
   <li class="nav-item">
-    <a class="nav-link <?= $link['class'] ?? '' ?>" href="<?= $link['url']; ?>">
+    <a class="nav-link" href="<?= $link['url']; ?>">
       <?= $link['lable']; ?>
     </a>
   </li>
 <?php endforeach; ?>
-              <!-- <a class="class" href="#">google.com</a> -->
-              <!-- foreach($munuLinks as $link){
-                echo "<li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"{$link['url']}\">{$link['lable']}</a>
-                </li>"; } -->
           </ul>
           <!-- for searching info -->
           <!-- Login name надо будет менять -->

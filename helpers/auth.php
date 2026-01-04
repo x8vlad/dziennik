@@ -9,19 +9,11 @@ function isNotUser($user){
 }
 
 
-
 // if user NOT succesfull auth / if user not a exist (need(require) a Auth)
 function requireAuth(){
     // if(session_status() !== PHP_SESSION_ACTIVE) session_start();
     if(!isset($_SESSION['user'])){
-        // header("Location: " . BASE_URL . "view/main.tpl.php");
-        // exit();
-    }
-}
-
-function noRequireAuth(){
-     if(isset($_SESSION['user'])){
-        // header("Location:" . BASE_URL . "/view/grades.tpl.php");
-        // exit();
+        header("Location: " . BASE_URL . "view/main.tpl.php");
+        exit();
     }
 }

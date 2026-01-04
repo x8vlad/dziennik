@@ -14,6 +14,4 @@ class Validator{
             //ajax
         }else{return true;}
     }
-
-
 }

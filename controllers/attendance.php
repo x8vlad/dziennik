@@ -21,4 +21,3 @@ while($row = $res->fetch(PDO::FETCH_ASSOC)){
   echo '<td>' . '<input type="checkbox" id="apsent" name="apsent" data-id="' . $row['login'] . '">' . '</td>';
   echo '</tr>';
 }
-?>

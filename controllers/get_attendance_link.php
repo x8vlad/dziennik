@@ -24,5 +24,3 @@ try{
     exit();
 }catch(Exception){
 }
-
-?>

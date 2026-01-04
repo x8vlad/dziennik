@@ -85,7 +85,6 @@ include_once(controller('header.php'));
     <a href="<?= BASE_URL ?>view/messages.tpl.php" class="btn btn-primary mb-5">Messages</a>
   </div>
 </div>
-
 <?php endif; ?>
 <!-- remove endif and else -->
 

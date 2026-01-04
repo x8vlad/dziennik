@@ -25,7 +25,6 @@ class LogIn {
                 $_SESSION['user'] = $login;
                 // file_put_contents("../testSystem.txt", " super: $login \n", FILE_APPEND);
                 return true;
-                
             } else {
                 // echo 'Пароль не правильный';э
                 // header("location: ../view/main.tpl.php");

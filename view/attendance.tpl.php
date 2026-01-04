@@ -1,7 +1,8 @@
 <?php
 include_once(__DIR__ . '/../config/config.php');
+include_once(helpers('auth.php'));
+requireAuth();
 include_once(controller('header.php'));
-
 ?>
 <div class="container my-5">
   <h1>This page has been working..</h1>
