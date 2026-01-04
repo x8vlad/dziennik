@@ -2,7 +2,7 @@
 // session (мб надо бует ввер в new тег пхп перенси) MAIN PAGE
 include_once(__DIR__ . '/../config/config.php');
 include_once(helpers('auth.php'));
-// noRequireAuth();
+isUser();
 
 include_once(controller('header.php'));
 

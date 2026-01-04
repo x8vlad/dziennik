@@ -8,6 +8,12 @@ function isNotUser($user){
     }
 }
 
+function isUser(){
+    if(isset($_SESSION['user'])){
+        header("Location: " . BASE_URL . "view/profile.tpl.php");
+        exit();
+    }
+}
 
 // if user NOT succesfull auth / if user not a exist (need(require) a Auth)
 function requireAuth(){
