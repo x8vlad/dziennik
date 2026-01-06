@@ -23,4 +23,15 @@ class Dbh {
     }
 
     public function connect(){return $this->connection;}
+
+    public static function queryByID($query, $id){
+        $stmt = Dbh::getInstance()->connect()->prepare($query);
+        $stmt->bindParam(":id", $id);
+
+        echo "😁";
+
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }
